@@ -600,33 +600,38 @@
 
         // === LOAD SLIDES ===
         function processLoadedData(data) {
-            validateSlides(data);
-            const bankMap = (window.slideBank && Array.isArray(window.slideBank.slides)) ?
-                Object.fromEntries(window.slideBank.slides.map(s => [s.id, s])) : {};
-            slidesData = (data.slides || []).map(s => resolveSlide(s, bankMap));
-            window.slidesData = slidesData;
-            boardData = data.board || null;
-            hasBoard = !!(boardData && Array.isArray(boardData.sections) && boardData.sections.length > 0);
+            try {
+                console.log('[SlideBoard] processLoadedData start, slides:', (data.slides||[]).length, 'board:', !!(data.board));
+                validateSlides(data);
+                const bankMap = (window.slideBank && Array.isArray(window.slideBank.slides)) ?
+                    Object.fromEntries(window.slideBank.slides.map(s => [s.id, s])) : {};
+                slidesData = (data.slides || []).map(s => resolveSlide(s, bankMap));
+                window.slidesData = slidesData;
+                boardData = data.board || null;
+                hasBoard = !!(boardData && Array.isArray(boardData.sections) && boardData.sections.length > 0);
 
-            if (window.SlideForge && typeof window.SlideForge.applyPreset === 'function') {
-                const urlPreset = new URLSearchParams(window.location.search).get('preset');
-                window.SlideForge.applyPreset(urlPreset || data.preset || 'classroom', data.themeTokens);
-            }
-
-            const headerP = document.querySelector('.showcase-header p');
-            if (headerP && data.meta) headerP.textContent = (data.meta.subtitle || '') + ' · SlideBoard';
-
-            if (hasBoard) {
-                renderBoard();
-                // Check for deep-link slide parameter
-                const targetId = new URLSearchParams(window.location.search).get('slide');
-                if (targetId) {
-                    openSlideById(targetId);
+                if (window.SlideForge && typeof window.SlideForge.applyPreset === 'function') {
+                    const urlPreset = new URLSearchParams(window.location.search).get('preset');
+                    window.SlideForge.applyPreset(urlPreset || data.preset || 'classroom', data.themeTokens);
                 }
-            } else {
-                // Linear mode fallback (Step 1.8)
-                document.getElementById('cardView').classList.add('hidden');
-                openSlide(0);
+
+                const headerP = document.querySelector('.showcase-header p');
+                if (headerP && data.meta) headerP.textContent = (data.meta.subtitle || '') + ' · SlideBoard';
+
+                console.log('[SlideBoard] hasBoard:', hasBoard, 'slidesData:', slidesData.length);
+                if (hasBoard) {
+                    renderBoard();
+                    const targetId = new URLSearchParams(window.location.search).get('slide');
+                    if (targetId) {
+                        openSlideById(targetId);
+                    }
+                } else {
+                    document.getElementById('cardView').classList.add('hidden');
+                    openSlide(0);
+                }
+            } catch(e) {
+                console.error('[SlideBoard] FATAL i processLoadedData:', e);
+                document.getElementById('cardView').innerHTML = '<div style="text-align:center;padding:3rem;color:#dc2626"><h2>⚠️ Renderingsfel</h2><pre style="text-align:left;max-width:600px;margin:1rem auto;font-size:0.8rem;background:#fef2f2;padding:1rem;border-radius:8px;overflow:auto">' + e.message + '\n' + e.stack + '</pre></div>';
             }
         }
 
