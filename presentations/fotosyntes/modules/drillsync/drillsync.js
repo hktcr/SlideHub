@@ -361,7 +361,9 @@
         const optCount = {};
         Object.values(participantAnswers).forEach(answers => {
             const ans = answers[currentQuestionIdx];
-            if (ans !== undefined) {
+            if (Array.isArray(ans)) {
+                ans.forEach(a => { optCount[a] = (optCount[a] || 0) + 1; });
+            } else if (ans !== undefined) {
                 optCount[ans] = (optCount[ans] || 0) + 1;
             }
         });
@@ -388,15 +390,10 @@
      * Send messages via SlideCast relay
      */
     function sendToRelay(msg) {
-        // Access SlideCast's websocket via the global hook
-        if (window.__slidecast_ws && window.__slidecast_ws.readyState === WebSocket.OPEN) {
+        if (typeof window.slideCastSend === 'function') {
+            window.slideCastSend(msg);
+        } else if (window.__slidecast_ws && window.__slidecast_ws.readyState === WebSocket.OPEN) {
             window.__slidecast_ws.send(JSON.stringify(msg));
-        } else if (typeof window.slideCastPoll === 'function') {
-            // Fallback: use SlideCast's broadcast mechanism
-            // For drill questions, we repurpose the poll broadcast
-            if (msg.type === 'drill' && msg.action === 'question') {
-                window.slideCastPoll(msg.data.question, msg.data.options);
-            }
         }
     }
 

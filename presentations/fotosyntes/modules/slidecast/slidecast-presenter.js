@@ -166,6 +166,9 @@
             case 'vote':
                 recordVote(msg);
                 break;
+            case 'ask_answer':
+                recordAskAnswer(msg);
+                break;
             case 'audience_count':
                 updateAudienceCount(msg.count);
                 break;
@@ -217,44 +220,64 @@
         });
     }
 
+    window.slideCastSend = function(msg) {
+        if (!ws || ws.readyState !== WebSocket.OPEN) {
+            console.warn('SlideCast: Not connected');
+            return false;
+        }
+        ws.send(JSON.stringify(msg));
+        return true;
+    };
+
+    const askAnswers = {};   // { askId: { texts: [], voters: Set } }
+    function recordAskAnswer(msg) {
+        const id = msg.askId;
+        if (!id) return;
+        if (!askAnswers[id]) askAnswers[id] = { texts: [], voters: new Set() };
+        const a = askAnswers[id];
+        if (msg.participantId) {
+            if (a.voters.has(msg.participantId)) return;
+            a.voters.add(msg.participantId);
+        }
+        a.texts.push(String(msg.text || '').slice(0, 300));
+        if (typeof window.__ask_updateCount === 'function') window.__ask_updateCount(id, a.texts.length);
+    }
+    
+    window.__ask_getAggregate = function(id) {
+        const a = askAnswers[id];
+        return a ? { n: a.texts.length, texts: a.texts.slice() } : { n: 0, texts: [] };
+    };
+
     /**
      * Record a poll vote
      */
     function recordVote(msg) {
         const id = msg.pollId;
-        if (!pollResults[id]) pollResults[id] = {};
-        const opt = msg.option;
-        pollResults[id][opt] = (pollResults[id][opt] || 0) + 1;
-        // Update live results UI if visible
-        updatePollResults(id);
+        if (!id) return;
+        if (!pollResults[id]) pollResults[id] = { counts: {}, voters: new Set() };
+        const p = pollResults[id];
+        if (msg.participantId) {
+            if (p.voters.has(msg.participantId)) return;
+            p.voters.add(msg.participantId);
+        }
+        p.counts[msg.option] = (p.counts[msg.option] || 0) + 1;
+        updatePollResults(id, msg.option);
     }
 
-    function updatePollResults(pollId) {
-        // Will be used when PulseCheck is implemented
+    function updatePollResults(pollId, optIndex) {
+        if (typeof window.__pulsecheck_remoteVote === 'function') {
+            window.__pulsecheck_remoteVote(pollId, optIndex);
+        }
     }
 
     /**
      * Send a poll to all audience clients
      */
-    window.slideCastPoll = function(question, options) {
-        if (!ws || ws.readyState !== WebSocket.OPEN) {
-            console.warn('SlideCast: Not connected');
-            return;
-        }
-
-        const pollId = 'poll-' + Date.now();
-        pollResults[pollId] = {};
-
-        ws.send(JSON.stringify({
-            type: 'poll',
-            data: {
-                id: pollId,
-                question: question,
-                options: options
-            }
-        }));
-
-        return pollId;
+    window.slideCastPoll = function(question, options, pollId) {
+        const id = pollId || ('poll-' + Date.now());
+        pollResults[id] = pollResults[id] || { counts: {}, voters: new Set() };
+        window.slideCastSend({ type: 'poll_start', data: { id: id, question: question, options: options } });
+        return id;
     };
 
     /**

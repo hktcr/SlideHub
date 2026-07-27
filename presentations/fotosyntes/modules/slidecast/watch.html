@@ -520,6 +520,23 @@
             color: white;
         }
 
+        /* ===== ASK AREA ===== */
+        .ask-area {
+            display: none;
+            padding: 1rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .ask-area.active { display: block; }
+        .ask-question { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; text-align: center; }
+        .ask-form { display: flex; flex-direction: column; gap: 0.5rem; }
+        .ask-input { width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; resize: vertical; min-height: 44px; }
+        .ask-footer { display: flex; justify-content: space-between; align-items: center; }
+        .ask-counter { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+        .ask-submit { min-height: 44px; padding: 0.5rem 1.5rem; background: var(--accent); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        .ask-status { font-size: 0.9rem; color: #22c55e; margin-top: 0.5rem; display: none; text-align: center; }
+
         /* ===== DRILL QUIZ (audience side) ===== */
         .drill-area {
             display: none;
@@ -704,6 +721,18 @@
         <div class="poll-options" id="pollOptions"></div>
     </div>
 
+    <div class="ask-area" id="askArea">
+        <div class="ask-question" id="askQuestion"></div>
+        <form class="ask-form" id="askForm" onsubmit="submitAsk(event)">
+            <textarea class="ask-input" id="askInput" placeholder="Ditt svar..." rows="2"></textarea>
+            <div class="ask-footer">
+                <span class="ask-counter" id="askCounter">0 / 140</span>
+                <button type="submit" class="ask-submit" id="askSubmitBtn">Skicka</button>
+            </div>
+            <div class="ask-status" id="askStatus">✓ Svar skickat</div>
+        </form>
+    </div>
+
     <div class="drill-area" id="drillArea">
         <div class="drill-header">
             <div class="drill-badge">🧠 QUIZ</div>
@@ -878,6 +907,18 @@
         const participantId = 'p-' + Math.random().toString(36).substr(2, 8);
 
         function handleMessage(msg) {
+            if (msg.type === 'state') {
+                if (msg.data.slide) renderSlide(msg.data.slide);
+                if (msg.data.meta) updateMeta(msg.data.meta);
+                if (msg.data.poll) showPoll(msg.data.poll);
+                else hidePoll();
+
+                if (msg.data.ask) showAsk(msg.data.ask);
+                else hideAsk();
+
+                return;
+            }
+
             switch (msg.type) {
                 case 'slide':
                     renderSlide(msg.data);
@@ -889,18 +930,17 @@
                 case 'poll_end':
                     hidePoll();
                     break;
+                case 'ask_start':
+                    showAsk(msg.data);
+                    break;
+                case 'ask_show':
+                    hideAsk();
+                    break;
                 case 'drill':
                     handleDrill(msg);
                     break;
                 case 'meta':
                     updateMeta(msg.data);
-                    break;
-                case 'state':
-                    // Full state sync
-                    if (msg.data.slide) renderSlide(msg.data.slide);
-                    if (msg.data.meta) updateMeta(msg.data.meta);
-                    if (msg.data.poll) showPoll(msg.data.poll);
-                    break;
             }
         }
 
@@ -931,6 +971,9 @@
             const status = document.getElementById('drillStatus');
 
             drillAnswered = false;
+            window.currentDrillSelections = new Set();
+            window.currentDrillData = data;
+            
             feedback.style.display = 'none';
             status.textContent = '';
             status.className = 'drill-status';
@@ -939,11 +982,15 @@
 
             qText.textContent = data.question;
             options.innerHTML = data.options.map((opt, i) => `
-                <div class="drill-option" onclick="answerDrill('${data.quizId}', ${data.questionIdx}, ${i}, this)">
-                    <span class="drill-letter" style="background:${colors[i % colors.length]}">${String.fromCharCode(65 + i)}</span>
+                <div class="drill-option" onclick="toggleDrillOption(${i}, this)">
+                    <div class="drill-letter" style="background:${colors[i % colors.length]}">
+                        <span class="letter-text">${String.fromCharCode(65 + i)}</span>
+                    </div>
                     <span>${opt}</span>
                 </div>
-            `).join('');
+            `).join('') + `
+                <button class="drill-submit-btn" onclick="submitDrillAnswer()" style="margin-top:1rem; padding:0.8rem; background:var(--accent); border:none; border-radius:12px; color:white; font-weight:bold; cursor:pointer; font-size:1rem;">Skicka svar</button>
+            `;
 
             area.classList.add('active');
 
@@ -953,33 +1000,53 @@
             }
         }
 
-        function answerDrill(quizId, questionIdx, optIdx, el) {
+        window.toggleDrillOption = function(optIdx, el) {
             if (drillAnswered) return;
-            drillAnswered = true;
+            const data = window.currentDrillData;
+            
+            if (data.multiSelect) {
+                if (window.currentDrillSelections.has(optIdx)) {
+                    window.currentDrillSelections.delete(optIdx);
+                    el.classList.remove('selected');
+                } else {
+                    window.currentDrillSelections.add(optIdx);
+                    el.classList.add('selected');
+                }
+            } else {
+                window.currentDrillSelections.clear();
+                window.currentDrillSelections.add(optIdx);
+                document.querySelectorAll('.drill-option').forEach(o => o.classList.remove('selected'));
+                el.classList.add('selected');
+            }
+        };
 
-            // Visual: mark selected
-            document.querySelectorAll('.drill-option').forEach(o => o.classList.remove('selected'));
-            el.classList.add('selected');
+        window.submitDrillAnswer = function() {
+            if (drillAnswered || window.currentDrillSelections.size === 0) return;
+            drillAnswered = true;
+            
+            const data = window.currentDrillData;
+            const selectedOptions = Array.from(window.currentDrillSelections);
 
             // Send answer to relay
             sendToRelay({
                 type: 'drill_answer',
                 participantId: participantId,
-                quizId: quizId,
-                questionIdx: questionIdx,
-                option: optIdx,
+                quizId: data.quizId,
+                questionIdx: data.questionIdx,
+                option: data.multiSelect ? selectedOptions : selectedOptions[0],
                 time: Date.now()
             });
 
             const status = document.getElementById('drillStatus');
             status.textContent = '✓ Svar registrerat!';
             status.className = 'drill-status sent';
-        }
-        // Make it global for onclick
-        window.answerDrill = answerDrill;
+            
+            const btn = document.querySelector('.drill-submit-btn');
+            if (btn) btn.style.display = 'none';
+        };
 
         function revealDrillAnswer(data) {
-            if (drillTimer) clearInterval(drillTimer);
+            if (drillTimer) clearTimeout(drillTimer);
 
             const correctIdx = data.correct;
             document.querySelectorAll('.drill-option').forEach((el, i) => {
@@ -1011,7 +1078,6 @@
                 </div>
             `).join('');
         }
-
         function hideDrill() {
             document.getElementById('drillArea').classList.remove('active');
             if (drillTimer) clearInterval(drillTimer);
@@ -1175,8 +1241,69 @@
             sendToRelay({
                 type: 'vote',
                 pollId: pollId,
-                option: optionIndex
+                option: optionIndex,
+                participantId: participantId
             });
+        }
+
+        // ===== ASK SYSTEM =====
+        let currentAsk = null;
+
+        function showAsk(data) {
+            currentAsk = data;
+            const area = document.getElementById('askArea');
+            const question = document.getElementById('askQuestion');
+            const input = document.getElementById('askInput');
+            const counter = document.getElementById('askCounter');
+            const status = document.getElementById('askStatus');
+            const btn = document.getElementById('askSubmitBtn');
+
+            question.textContent = data.question || 'Skriv ditt svar';
+            
+            if (data.mode === 'word') {
+                input.outerHTML = '<input type="text" class="ask-input" id="askInput" placeholder="Ett eller ett par ord..." autocomplete="off">';
+                document.getElementById('askInput').maxLength = data.maxLength || 30;
+            } else {
+                input.outerHTML = '<textarea class="ask-input" id="askInput" placeholder="Ditt svar..." rows="2"></textarea>';
+                document.getElementById('askInput').maxLength = data.maxLength || 140;
+            }
+            
+            const newInput = document.getElementById('askInput');
+            newInput.value = '';
+            newInput.disabled = false;
+            btn.disabled = false;
+            status.style.display = 'none';
+
+            newInput.oninput = function() {
+                counter.textContent = `${this.value.length} / ${this.maxLength}`;
+            };
+            counter.textContent = `0 / ${newInput.maxLength}`;
+
+            area.classList.add('active');
+        }
+
+        function hideAsk() {
+            document.getElementById('askArea').classList.remove('active');
+            currentAsk = null;
+        }
+
+        function submitAsk(e) {
+            e.preventDefault();
+            if (!currentAsk) return;
+            const input = document.getElementById('askInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            sendToRelay({
+                type: 'ask_answer',
+                askId: currentAsk.id,
+                participantId: participantId,
+                text: text
+            });
+
+            input.disabled = true;
+            document.getElementById('askSubmitBtn').disabled = true;
+            document.getElementById('askStatus').style.display = 'block';
         }
 
         // ===== QUESTION SYSTEM =====

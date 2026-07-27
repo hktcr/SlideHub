@@ -35,7 +35,7 @@ try {
 }
 
 const PORT = parseInt(process.argv.find((_, i, a) => a[i-1] === '--port') || '8787');
-const PRESENTER_TOKEN = process.env.SLIDECAST_TOKEN || null;
+const PRESENTER_TOKEN = process.env.SLIDECAST_TOKEN || process.argv.find((_, i, a) => a[i-1] === '--token') || null;
 
 if (!PRESENTER_TOKEN) {
     console.warn('⚠️ SLIDECAST_TOKEN ej satt: Relay tillåter obegränsad presentatörsanslutning (lokalt testläge)');
@@ -228,9 +228,13 @@ wss.on('connection', (ws) => {
                         return;
                     }
                     if (room.presenter && room.presenter !== ws && room.presenter.readyState === 1) {
-                        ws.send(JSON.stringify({ type: 'error', code: 'occupied', message: 'Rummet har redan en presentatör' }));
-                        setTimeout(() => { try { ws.close(4002, 'occupied'); } catch(e) {} }, 50);
-                        return;
+                        if (PRESENTER_TOKEN && msg.token === PRESENTER_TOKEN) {
+                            try { room.presenter.close(4003, 'takeover'); } catch(e) {}
+                        } else {
+                            ws.send(JSON.stringify({ type: 'error', code: 'occupied', message: 'Rummet har redan en presentatör' }));
+                            setTimeout(() => { try { ws.close(4002, 'occupied'); } catch(e) {} }, 50);
+                            return;
+                        }
                     }
                     room.presenter = ws;
                     if (msg.meta) {
@@ -289,8 +293,7 @@ function handleMessage(msg, senderWs, room, role) {
             room.state.meta = msg.data;
             broadcastToAudience(room, msg);
             break;
-
-        case 'poll':
+        case 'poll_start':
             room.state.poll = msg.data;
             broadcastToAudience(room, msg);
             break;
@@ -298,6 +301,16 @@ function handleMessage(msg, senderWs, room, role) {
         case 'poll_end':
             room.state.poll = null;
             broadcastToAudience(room, msg);
+            break;
+
+        case 'ask_start':
+        case 'ask_show':
+            room.state.ask = msg.data || null;
+            broadcastToAudience(room, msg);
+            break;
+
+        case 'ask_answer':
+            broadcastToPresenter(room, msg);
             break;
 
         case 'question':

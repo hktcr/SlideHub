@@ -272,7 +272,7 @@
      */
     function broadcastPoll(slide) {
         if (typeof window.slideCastPoll === 'function') {
-            window.slideCastPoll(slide.question, slide.options);
+            window.slideCastPoll(slide.question, slide.options, slide.id);
         }
     }
 

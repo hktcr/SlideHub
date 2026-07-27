@@ -486,9 +486,7 @@
         }
 
         function closeSlide() {
-            if (window.SlideForge && typeof window.SlideForge.destroyAll === 'function') {
-                window.SlideForge.destroyAll();
-            }
+
 
             const s = slidesData[currentIdx];
             let targetCard = null;
@@ -618,7 +616,7 @@
 
             if (window.SlideForge && typeof window.SlideForge.applyPreset === 'function') {
                 const urlPreset = new URLSearchParams(window.location.search).get('preset');
-                window.SlideForge.applyPreset(urlPreset || data.preset || 'classroom');
+                window.SlideForge.applyPreset(urlPreset || data.preset || 'classroom', data.themeTokens);
             }
 
             const headerP = document.querySelector('.showcase-header p');

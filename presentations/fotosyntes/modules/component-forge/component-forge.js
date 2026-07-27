@@ -1726,11 +1726,18 @@
       if (st && st.apply && st.current > 0) { st.current--; st.apply(st.current); return true; }
       return false;
     };
-    window.SlideForge.applyPreset = function(name) {
+    window.SlideForge.applyPreset = function(name, tokens = null) {
       const preset = name || 'classroom';
       const root = document.documentElement;
       window.SlideForge.activePreset = preset;
       document.body.classList.remove('sf-preset-auditorium', 'sf-preset-remote', 'sf-preset-workshop', 'sf-preset-classroom');
+      
+      if (tokens && typeof tokens === 'object') {
+          for (const [key, val] of Object.entries(tokens)) {
+              root.style.setProperty(key.startsWith('--') ? key : `--${key}`, val);
+          }
+      }
+
       if (preset === 'auditorium') {
         root.style.setProperty('--sf-font-scale', '1.3');
         root.style.setProperty('--sf-anim-duration', '0.4s');
@@ -1775,7 +1782,12 @@
     }
 
     function safeField(value, fieldName) {
-      if (typeof value !== 'string') return value || '';
+      if (value == null) return '';
+      if (typeof value === 'object') {
+          if (Array.isArray(value)) value = value.join(' ');
+          else value = value.text || value.title || value.question || JSON.stringify(value);
+      }
+      value = String(value);
       return SF_HTML_FIELDS.has(fieldName) ? value : escapeHtml(value);
     }
 
@@ -4213,6 +4225,8 @@
       setTimeout(() => {
         const el = document.getElementById(uid);
         if (!el || el.closest('.sb-poster')) return;
+        el.addEventListener('click', e => e.stopPropagation());
+        el.addEventListener('keydown', e => e.stopPropagation());
         window.SlideForge.registerCleanup(() => { try { el.pause(); el.removeAttribute('src'); el.load(); } catch(e) {} });
       }, 0);
       const track = s.captions ? `<track kind="captions" src="${s.captions}" srclang="sv" label="Svenska" default>` : '';
@@ -4292,6 +4306,14 @@
           showBtn.onclick = () => {
             if (resultBox) resultBox.style.display = 'block';
             showBtn.style.display = 'none';
+            if (typeof window.__ask_getAggregate === 'function') {
+                const results = window.__ask_getAggregate(s.id);
+                const resContent = host.querySelector('.ask-results-content');
+                if (resContent) resContent.innerHTML = results && results.html ? results.html : 'Inga svar insamlade än.';
+            }
+            if (typeof window.slideCastSend === 'function') {
+                window.slideCastSend({ type: 'ask_show', data: { id: s.id } });
+            }
           };
         }
       }, 0);

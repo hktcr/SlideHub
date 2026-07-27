@@ -295,7 +295,7 @@ function parsePropsToken(token) {
   if (!token) return null;
 
   // Plocka namn, typ-hints i parenteser, och brackets
-  const match = token.match(/^(\w+)(\[\])?\s*(.*)?$/);
+  const match = token.match(/^([\w-]+)(\[\])?\s*(.*)?$/);
   if (!match) return null;
 
   const name = match[1];
