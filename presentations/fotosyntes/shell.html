@@ -187,7 +187,8 @@
         <div class="slide-counter" id="slideCounter"></div>
     </div>
 
-    <script src="component-forge.js"></script>
+    <script>window.slideTypeRegistry = window.slideTypeRegistry || {};</script>
+    <script src="modules/component-forge/component-forge.js"></script>
     <script src="modules/slidecast/slidecast-presenter.js"></script>
     <script src="modules/presenter/presenter-link.js"></script>
     <script src="modules/rehearsal/rehearsal.js"></script>
@@ -242,7 +243,7 @@
         }
 
         // === TITLE SLIDE RENDERER (fallback) ===
-        window.slideTypeRegistry = window.slideTypeRegistry || {};
+        // (flyttad till toppen för att säkerställa att modulerna hittar den)
         window.slideTypeRegistry['title'] = function(s) {
             const parts = (s.title || '').split(' ');
             const last = parts.length > 1 ? parts.pop() : '';
