@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Debug — SlideBoard</title>
+<style>
+body { font-family: sans-serif; padding: 2rem; background: #faf8f5; color: #1e293b; }
+pre { background: #f1f5f9; padding: 1rem; border-radius: 8px; font-size: 0.8rem; overflow: auto; max-height: 400px; }
+.pass { color: #16a34a; font-weight: bold; }
+.fail { color: #dc2626; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>SlideBoard Debug</h1>
+<div id="log"></div>
+<script>
+const log = document.getElementById('log');
+function out(msg, ok) {
+    const p = document.createElement('p');
+    p.className = ok ? 'pass' : 'fail';
+    p.textContent = (ok ? '✅ ' : '❌ ') + msg;
+    log.appendChild(p);
+}
+
+// Test 1: Can we load slides.json?
+fetch('slides.json')
+  .then(r => {
+    out('slides.json HTTP ' + r.status, r.ok);
+    return r.json();
+  })
+  .then(data => {
+    out('slides.json parsed: ' + data.slides.length + ' slides, ' + data.board.sections.length + ' sections', true);
+  })
+  .catch(err => out('slides.json FAILED: ' + err.message, false));
+
+// Test 2: Can we load component-forge.js?
+const script = document.createElement('script');
+script.src = 'modules/component-forge/component-forge.js';
+script.onload = function() {
+    out('component-forge.js loaded (onload fired)', true);
+    setTimeout(function() {
+        out('window.SlideForge exists: ' + !!window.SlideForge, !!window.SlideForge);
+        out('window.slideTypeRegistry keys: ' + Object.keys(window.slideTypeRegistry || {}).length, Object.keys(window.slideTypeRegistry || {}).length > 0);
+        out('window.__componentForge keys: ' + Object.keys(window.__componentForge || {}).length, Object.keys(window.__componentForge || {}).length > 0);
+    }, 500);
+};
+script.onerror = function(e) {
+    out('component-forge.js FAILED to load: ' + e, false);
+};
+window.slideTypeRegistry = window.slideTypeRegistry || {};
+document.body.appendChild(script);
+
+// Test 3: Check other modules
+['modules/slidecast/slidecast-presenter.js',
+ 'modules/presenter/presenter-link.js',
+ 'modules/rehearsal/rehearsal.js',
+ 'modules/pulsecheck/pulsecheck.js'].forEach(function(src) {
+    fetch(src, {method: 'HEAD'})
+      .then(r => out(src + ' HTTP ' + r.status, r.ok))
+      .catch(err => out(src + ' FAILED: ' + err.message, false));
+});
+
+// Global error handler
+window.onerror = function(msg, src, line, col, err) {
+    out('GLOBAL ERROR: ' + msg + ' at ' + src + ':' + line + ':' + col, false);
+    if (err && err.stack) {
+        const pre = document.createElement('pre');
+        pre.textContent = err.stack;
+        log.appendChild(pre);
+    }
+    return true;
+};
+</script>
+</body>
+</html>
