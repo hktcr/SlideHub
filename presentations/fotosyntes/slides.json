@@ -12,7 +12,7 @@
       {
         "id": "sec-fotosyntes",
         "title": "1. Fotosyntesen — Motorn i Ekosystemet",
-        "slides": ["title-slide", "fotosyntes-formel", "glukos-kolskelett", "fotosyntes-process"]
+        "slides": ["start-cascade", "title-slide", "fotosyntes-formel", "glukos-kolskelett", "fotosyntes-process", "reflektion-1", "fotosyntes-missuppfattning"]
       },
       {
         "id": "sec-kolhydrater",
@@ -32,11 +32,20 @@
       {
         "id": "sec-helhet",
         "title": "5. Det Biokemiska Kretsloppet",
-        "slides": ["biokemiskt-samband-map", "kretslopp-jämförelse", "outro-slide"]
+        "slides": ["biokemiskt-samband-map", "kretslopp-jämförelse", "reflektion-avslutning", "outro-slide"]
       }
     ]
   },
   "slides": [
+    {
+      "id": "start-cascade",
+      "type": "word-cascade",
+      "words": ["Solljus", "blir", "till", "*liv*"],
+      "speed": 250,
+      "finalPause": true,
+      "cardTitle": "Det stora undret",
+      "cardSubtitle": "Allt livs grund"
+    },
     {
       "id": "title-slide",
       "type": "title",
@@ -121,6 +130,31 @@
       ],
       "cardTitle": "Energins Väg",
       "cardSubtitle": "Steg för steg i kloroplasten"
+    },
+    {
+      "id": "reflektion-1",
+      "type": "reflection",
+      "title": "Tänk efter...",
+      "tag": "DISKUSSION",
+      "mode": "pair",
+      "duration": "3 minuter",
+      "questions": [
+        "Om solen slocknade imorgon, hur länge tror ni att djurlivet skulle överleva?",
+        "Varifrån kommer egentligen hela massan i ett gigantiskt ekträd – från jorden eller från luften?"
+      ],
+      "cardTitle": "Diskussion",
+      "cardSubtitle": "Sol och träd"
+    },
+    {
+      "id": "fotosyntes-missuppfattning",
+      "type": "pitfall",
+      "severity": "warning",
+      "badge": "VANLIG MISSUPPFATTNING",
+      "question": "Varifrån får växten sin materia (vikt) när den växer från ett litet frö till ett stort träd?",
+      "answer": "Växten 'äter' jorden. All materia kommer från jorden och vattnet som sugs upp av rötterna.",
+      "correction": "Falskt! Nästan all materia i ett träd är kolföreningar uppbyggda av koldioxid från LUFTEN. Jorden bidrar bara med pyttesmå mängder mineraler och vatten (som oftast avdunstar).",
+      "cardTitle": "Missuppfattning",
+      "cardSubtitle": "Trädets materia"
     },
     {
       "id": "kolhydrater-oversikt",
@@ -335,6 +369,20 @@
       ],
       "cardTitle": "Ekosystemets Kretslopp",
       "cardSubtitle": "Autotrofer och heterotrofer i samspel"
+    },
+    {
+      "id": "reflektion-avslutning",
+      "type": "reflection",
+      "title": "Sammanfattning",
+      "tag": "SLUTREFLEKTION",
+      "mode": "group",
+      "duration": "5 minuter",
+      "questions": [
+        "Av kolhydrater, proteiner och fetter – vilket ämne tror ni var det absolut första att utvecklas i livets historia?",
+        "Vad händer med koldioxiden ni andas ut just nu? Beskriv dess framtida resa!"
+      ],
+      "cardTitle": "Slutreflektion",
+      "cardSubtitle": "Livets byggstenar"
     },
     {
       "id": "outro-slide",

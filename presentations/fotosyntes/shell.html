@@ -197,6 +197,7 @@
         let boardData = null;
         let posterCleanups = [];
         let currentCardEl = null;
+        let activeSectionSlideIdxs = null;
 
         // Global mirrors for SlideCast & SlideBoard compatibility
         window.slidesData = slidesData;
@@ -432,7 +433,8 @@
                     labelDiv.innerHTML = `<span class="sb-title">${s.cardTitle || s.title || s.type}</span><span class="sb-type">${s.type}</span>`;
                     card.appendChild(labelDiv);
 
-                    card.onclick = () => openSlideFromCard(card, idx);
+                    const sectionIdxs = sec.slides.map(sid => slideIndexById(sid)).filter(i => i >= 0);
+                    card.onclick = () => openSlideFromCard(card, idx, sectionIdxs);
                     gridEl.appendChild(card);
                 });
 
@@ -465,8 +467,9 @@
         }
         window.openSlide = openSlide;
 
-        function openSlideFromCard(cardEl, idx) {
+        function openSlideFromCard(cardEl, idx, sectionIdxs = null) {
             currentCardEl = cardEl;
+            activeSectionSlideIdxs = sectionIdxs;
             const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (!isReduced && cardEl) {
                 const first = cardEl.getBoundingClientRect();
@@ -541,11 +544,61 @@
             }
         }
 
-        document.getElementById('closeBtn').onclick = closeSlide;
-        document.getElementById('prevBtn').onclick = () => { if (currentIdx > 0) openSlide(currentIdx - 1); };
-        document.getElementById('nextBtn').onclick = () => { if (currentIdx < slidesData.length - 1) openSlide(currentIdx + 1); };
+        function nextSlide() {
+            if (window.SlideForge && typeof window.SlideForge.nextStep === 'function' && window.SlideForge.nextStep()) return;
+            const isPresenter = window.location.search.includes('presenter');
+            if (!isPresenter && activeSectionSlideIdxs && activeSectionSlideIdxs.length > 0) {
+                const pos = activeSectionSlideIdxs.indexOf(currentIdx);
+                if (pos >= 0 && pos < activeSectionSlideIdxs.length - 1) openSlide(activeSectionSlideIdxs[pos + 1]);
+            } else if (currentIdx < slidesData.length - 1) {
+                openSlide(currentIdx + 1);
+            }
+        }
 
-        // Keyboard controls (Escape, Arrow keys, Space, B)        document.body.addEventListener('wheel', e => {
+        function prevSlide() {
+            if (window.SlideForge && typeof window.SlideForge.prevStep === 'function' && window.SlideForge.prevStep()) return;
+            const isPresenter = window.location.search.includes('presenter');
+            if (!isPresenter && activeSectionSlideIdxs && activeSectionSlideIdxs.length > 0) {
+                const pos = activeSectionSlideIdxs.indexOf(currentIdx);
+                if (pos > 0) openSlide(activeSectionSlideIdxs[pos - 1]);
+            } else if (currentIdx > 0) {
+                openSlide(currentIdx - 1);
+            }
+        }
+
+        function updateButtonStates() {
+            const isPresenter = window.location.search.includes('presenter');
+            let hasPrev = currentIdx > 0;
+            let hasNext = currentIdx < slidesData.length - 1;
+            
+            if (!isPresenter && activeSectionSlideIdxs && activeSectionSlideIdxs.length > 0) {
+                const pos = activeSectionSlideIdxs.indexOf(currentIdx);
+                if (pos >= 0) {
+                    hasPrev = pos > 0;
+                    hasNext = pos < activeSectionSlideIdxs.length - 1;
+                }
+            }
+            
+            const pBtn = document.getElementById('prevBtn');
+            const nBtn = document.getElementById('nextBtn');
+            if (pBtn) pBtn.style.opacity = hasPrev ? '1' : '0.3';
+            if (nBtn) nBtn.style.opacity = hasNext ? '1' : '0.3';
+            if (pBtn) pBtn.disabled = !hasPrev;
+            if (nBtn) nBtn.disabled = !hasNext;
+        }
+
+        const originalOpenSlide = openSlide;
+        openSlide = function(idx) {
+            originalOpenSlide(idx);
+            updateButtonStates();
+        };
+
+        document.getElementById('closeBtn').onclick = closeSlide;
+        document.getElementById('prevBtn').onclick = prevSlide;
+        document.getElementById('nextBtn').onclick = nextSlide;
+
+        // Keyboard controls (Escape, Arrow keys, Space, B)
+        document.body.addEventListener('wheel', e => {
             if (!document.getElementById('slideView').classList.contains('active')) return;
             if (window._scrollThrottling) return;
             window._scrollThrottling = true;
@@ -561,12 +614,10 @@
                 if (e.key === 'b' || e.key === 'B') { closeSlide(); }
                 if (e.key === 'ArrowRight' || e.key === ' ') {
                     e.preventDefault();
-                    if (window.SlideForge && typeof window.SlideForge.nextStep === 'function' && window.SlideForge.nextStep()) return;
-                    if (currentIdx < slidesData.length - 1) openSlide(currentIdx + 1);
+                    nextSlide();
                 }
                 if (e.key === 'ArrowLeft') {
-                    if (window.SlideForge && typeof window.SlideForge.prevStep === 'function' && window.SlideForge.prevStep()) return;
-                    if (currentIdx > 0) openSlide(currentIdx - 1);
+                    prevSlide();
                 }
             }
         });
@@ -583,10 +634,21 @@
 
         slideView.addEventListener('touchend', e => {
             if (e.changedTouches.length === 1) {
-                const dy = e.changedTouches[0].clientY - touchStartY;
-                const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
-                if (dy > 80 && dx < 40) {
+                const endY = e.changedTouches[0].clientY;
+                const endX = e.changedTouches[0].clientX;
+                const dy = endY - touchStartY;
+                const dx = endX - touchStartX;
+                const absDy = Math.abs(dy);
+                const absDx = Math.abs(dx);
+                
+                if (absDy > 80 && absDx < 40 && dy > 0) {
                     closeSlide();
+                } else if (absDx > 60 && absDy < 40) {
+                    if (dx < 0) {
+                        nextSlide(); // Swipe left -> next
+                    } else {
+                        prevSlide(); // Swipe right -> prev
+                    }
                 }
             }
         }, { passive: true });
