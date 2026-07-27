@@ -323,33 +323,46 @@
             document.querySelectorAll('.sb-card').forEach(card => {
                 const inner = card.querySelector('.sb-poster-inner');
                 if (inner) {
-                    const scale = card.clientWidth / 1280;
+                    const w = card.clientWidth || card.getBoundingClientRect().width || 280;
+                    const scale = w > 0 ? (w / 1280) : 0.22;
                     inner.style.transform = 'scale(' + scale + ')';
                 }
             });
         }
 
         function renderAllPosters() {
-            if (!window.SlideForge) return;
-            const savedRegister = window.SlideForge.registerCleanup;
-            window.SlideForge.registerCleanup = function(fn) { posterCleanups.push(fn); };
             try {
+                const savedRegister = (window.SlideForge && window.SlideForge.registerCleanup) ? window.SlideForge.registerCleanup : null;
+                if (savedRegister) {
+                    window.SlideForge.registerCleanup = function(fn) { posterCleanups.push(fn); };
+                }
                 document.querySelectorAll('.sb-card').forEach(card => {
                     const s = slidesData[slideIndexById(card.dataset.slideId)];
                     if (!s) return;
                     const posterEl = card.querySelector('.sb-poster');
                     if (posterEl) {
                         if (!POSTER_PLACEHOLDER_TYPES.has(s.type) && window.slideTypeRegistry[s.type]) {
-                            posterEl.innerHTML = '<div class="sb-poster-inner">' + renderPoster(s) + '</div>';
+                            try {
+                                posterEl.innerHTML = '<div class="sb-poster-inner">' + renderPoster(s) + '</div>';
+                            } catch(err) {
+                                console.warn('[SlideBoard] Poster render error för slide:', s.id, err);
+                                posterEl.innerHTML = renderPoster({ type: s.type, cardTitle: s.cardTitle });
+                            }
                         } else {
                             posterEl.innerHTML = renderPoster(s);
                         }
                     }
                 });
-            } finally {
-                window.SlideForge.registerCleanup = savedRegister;
+                if (savedRegister) {
+                    window.SlideForge.registerCleanup = savedRegister;
+                }
+            } catch(e) {
+                console.error('[SlideBoard] Fel i renderAllPosters:', e);
             }
             updatePosterScales();
+            requestAnimationFrame(updatePosterScales);
+            setTimeout(updatePosterScales, 200);
+            setTimeout(updatePosterScales, 800);
         }
 
         // Debounced resize for poster scaling
