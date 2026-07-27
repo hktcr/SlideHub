@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Forge — Full Demo (Sprint 1+2+3)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        :root {
+            --bg: #000000; --surface: #1a1a1a; --card-bg: #2a2a2a; --card-bg-hover: #333;
+            --text: #f1f5f9; --text-muted: rgba(255,255,255,0.7);
+            --accent: #f97316; --accent2: #a855f7;
+            --green: #22c55e; --yellow: #eab308; --red: #ef4444;
+            --border: rgba(255,255,255,0.15); --border-hover: rgba(255,255,255,0.3);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; overflow: hidden; }
+        .demo-nav { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.3rem; z-index: 100; background: rgba(0,0,0,0.8); backdrop-filter: blur(14px); padding: 0.4rem 0.6rem; border-radius: 999px; border: 1px solid var(--border); flex-wrap: wrap; justify-content: center; max-width: 95vw; }
+        .demo-nav button { padding: 0.35rem 0.65rem; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 0.68rem; transition: all 0.2s; white-space: nowrap; }
+        .demo-nav button:hover { background: var(--surface); color: var(--text); }
+        .demo-nav button.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .demo-slide { display: none; width: 100vw; height: 100vh; justify-content: center; align-items: center; }
+        .demo-slide.active { display: flex; }
+        .demo-label { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); font-size: 0.7rem; color: var(--text-muted); background: var(--surface); padding: 0.3rem 0.9rem; border-radius: 999px; border: 1px solid var(--border); z-index: 100; font-family: monospace; }
+        .theme-bar { position: fixed; top: 1rem; right: 1rem; display: flex; gap: 0.25rem; z-index: 100; }
+        .theme-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.12); cursor: pointer; transition: transform 0.2s; }
+        .theme-dot:hover { transform: scale(1.2); }
+        .theme-dot.active { border-color: var(--accent); transform: scale(1.15); }
+        .sprint-label { position: fixed; top: 1rem; left: 1rem; font-size: 0.6rem; color: var(--text-muted); background: var(--surface); padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid var(--border); z-index: 100; }
+    </style>
+</head>
+<body>
+    <div class="sprint-label" id="sprintLabel">Sprint 1</div>
+    <div class="demo-label" id="demoLabel">word-cascade</div>
+    <div class="theme-bar" id="themeBar">
+        <div class="theme-dot active" style="background:#000" data-theme="dark" title="Auditorium Dark"></div>
+        <div class="theme-dot" style="background:#0f0b25" data-theme="indigo" title="Midnight Indigo"></div>
+        <div class="theme-dot" style="background:#000005;border-color:rgba(34,211,238,0.25)" data-theme="cosmos" title="Cosmos"></div>
+        <div class="theme-dot" style="background:#faf7f2" data-theme="paper" title="Paper"></div>
+        <div class="theme-dot" style="background:#f0fdf4" data-theme="meadow" title="Meadow"></div>
+        <div class="theme-dot" style="background:#000;border-color:rgba(0,255,65,0.25)" data-theme="terminal" title="Retro Terminal"></div>
+        <div class="theme-dot" style="background:#0a0a0a;border-color:rgba(255,0,255,0.2)" data-theme="neon" title="Neon"></div>
+    </div>
+
+    <div class="demo-slide active" id="slide-0"></div>
+    <div class="demo-slide" id="slide-1"></div>
+    <div class="demo-slide" id="slide-2"></div>
+    <div class="demo-slide" id="slide-3"></div>
+    <div class="demo-slide" id="slide-4"></div>
+    <div class="demo-slide" id="slide-5"></div>
+    <div class="demo-slide" id="slide-6"></div>
+    <div class="demo-slide" id="slide-7"></div>
+    <div class="demo-slide" id="slide-8"></div>
+
+    <script>window.slideTypeRegistry = {};</script>
+    <script src="component-forge.js"></script>
+    <script>
+        const slides = [
+            // Sprint 1
+            { label: 'word-cascade', sprint: 1, data: { type: 'word-cascade', words: ['Varje', 'elev', 'förtjänar', 'att', 'bli', '*sedd*'], speed: 250, finalPause: true }},
+            { label: 'box-reveal', sprint: 1, data: { type: 'box-reveal', title: 'Tre nyckelprinciper', boxes: [
+                { icon: '🎯', title: 'Precision', text: 'Rätt stöd till rätt elev vid rätt tillfälle' },
+                { icon: '⚡', title: 'Effektivitet', text: 'Mer tid för det mänskliga mötet' },
+                { icon: '🛡️', title: 'Säkerhet', text: 'Elevdata stannar lokalt, alltid' },
+                { icon: '🌱', title: 'Tillväxt', text: 'Kontinuerlig pedagogisk utveckling' }
+            ]}},
+            { label: 'bullet-build', sprint: 1, data: { type: 'bullet-build', title: 'Vad vi lärde oss', items: [
+                'AI:n skriver snabbt, läraren skriver rätt',
+                '*Komplementära styrkor är nyckeln*',
+                'Elevkännedom kan inte ersättas av data|Läraren ser det en maskin aldrig kan se',
+                'Tempo och konsistens förbättras med AI-stöd',
+                '*Deliberativ loop > automatisering*'
+            ], interval: 700 }},
+            // Sprint 2
+            { label: 'line-chart', sprint: 2, data: { type: 'line-chart', title: 'AI-användning bland lärare 2020\u20132024', xLabel: 'År', yLabel: '%',
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                series: [
+                    { name: 'OECD-snitt', color: '#6366f1', points: [12, 18, 25, 38, 56] },
+                    { name: 'Sverige', color: '#22c55e', points: [8, 14, 20, 32, 48] },
+                    { name: 'Åstorp', color: '#f97316', points: [3, 8, 18, 42, 65] }
+                ]
+            }},
+            { label: 'comparison', sprint: 2, data: { type: 'comparison', title: 'Omdömesskrivning: Med vs. Utan AI-stöd',
+                left: { label: 'Utan', items: ['40 min per elev', 'Risk för inkonsistens', 'Generisk feedback', 'Ork tar slut efter 15 elever'] },
+                right: { label: 'Med', items: ['8 min per elev', 'Konsekvent terminologi', 'Individanpassade formuleringar', 'Kvaliteten håller hela vägen'] },
+                highlights: [0, 3]
+            }},
+            { label: 'timeline-vertical', sprint: 2, data: { type: 'timeline-vertical', title: 'AI-kapplöpningen 2022\u20132026',
+                nodes: [
+                    { year: 'NOV 2022', text: 'ChatGPT lanseras', sub: 'Miljoner användare första veckan' },
+                    { year: 'MAR 2023', text: 'GPT-4 publiceras', sub: 'Klarar advokatexamen och medicinska prov' },
+                    { year: 'FEB 2024', text: 'Sora visar AI-genererad video', sub: 'Fotorealistisk video från textprompt' },
+                    { year: 'APR 2025', text: 'Första dödsfallet kopplat till AI-chatbot', sub: 'Character.AI-fallet — 14-årig pojke' },
+                    { year: '2026', text: 'AI-agenter opererar autonomt', sub: 'Multimodal, verktygsanvändande system' }
+                ]
+            }},
+            // Sprint 3
+            { label: 'progress-ring', sprint: 3, data: { type: 'progress-ring', title: 'Eleverna som nådde E-nivå',
+                value: 78, max: 100, unit: '%', color: '#22c55e', subtitle: 'Biologi, VT 2026'
+            }},
+            { label: 'number-wall', sprint: 3, data: { type: 'number-wall', title: 'SlideCraft i siffror',
+                numbers: [
+                    { value: 268, label: 'Slides totalt', icon: '📊' },
+                    { value: 17, label: 'Teman', icon: '🎨' },
+                    { value: 9, label: 'Slide-typer', icon: '🧩' },
+                    { value: 0, label: 'Externa beroenden', icon: '🔗' }
+                ]
+            }},
+            { label: 'bar-race', sprint: 3, data: { type: 'bar-race', title: 'AI-verktyg bland svenska lärare', unit: '%',
+                items: [
+                    { label: 'ChatGPT', value: 78, color: '#6366f1' },
+                    { label: 'Copilot', value: 45, color: '#22c55e' },
+                    { label: 'Gemini', value: 38, color: '#f97316' },
+                    { label: 'Claude', value: 22, color: '#a855f7' },
+                    { label: 'NotebookLM', value: 12, color: '#ec4899' },
+                    { label: 'Perplexity', value: 8, color: '#14b8a6' }
+                ]
+            }}
+        ];
+
+        const themes = {
+            dark: {"--bg":"#000","--surface":"#1a1a1a","--card-bg":"#2a2a2a","--text":"#f1f5f9","--text-muted":"rgba(255,255,255,0.7)","--accent":"#f97316","--accent2":"#a855f7","--border":"rgba(255,255,255,0.15)"},
+            indigo: {"--bg":"#0f0b25","--surface":"#1a1440","--card-bg":"#241e54","--text":"#e8e4f8","--text-muted":"rgba(232,228,248,0.65)","--accent":"#a78bfa","--accent2":"#c084fc","--border":"rgba(167,139,250,0.2)"},
+            cosmos: {"--bg":"#000005","--surface":"#0a0a1a","--card-bg":"#111128","--text":"#e0f2fe","--text-muted":"rgba(224,242,254,0.6)","--accent":"#22d3ee","--accent2":"#06b6d4","--border":"rgba(34,211,238,0.2)"},
+            paper: {"--bg":"#faf7f2","--surface":"#f5f0e8","--card-bg":"#ede7db","--text":"#44403c","--text-muted":"rgba(68,64,60,0.65)","--accent":"#c2410c","--accent2":"#9a3412","--border":"rgba(68,64,60,0.15)"},
+            meadow: {"--bg":"#f0fdf4","--surface":"#dcfce7","--card-bg":"#bbf7d0","--text":"#14532d","--text-muted":"rgba(20,83,45,0.65)","--accent":"#16a34a","--accent2":"#15803d","--border":"rgba(22,163,74,0.2)"},
+            terminal: {"--bg":"#000","--surface":"#0a0a0a","--card-bg":"#111","--text":"#00ff41","--text-muted":"rgba(0,255,65,0.5)","--accent":"#00ff41","--accent2":"#39ff14","--border":"rgba(0,255,65,0.15)"},
+            neon: {"--bg":"#0a0a0a","--surface":"#141414","--card-bg":"#1e1e1e","--text":"#fff","--text-muted":"rgba(255,255,255,0.6)","--accent":"#ff00ff","--accent2":"#00ffff","--border":"rgba(255,0,255,0.2)"}
+        };
+
+        let current = 0;
+        function showSlide(idx) {
+            current = idx;
+            document.querySelectorAll('.demo-slide').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.demo-nav button').forEach(btn => btn.classList.remove('active'));
+            const s = slides[idx], el = document.getElementById(`slide-${idx}`);
+            const renderer = window.slideTypeRegistry[s.data.type];
+            if (renderer) el.innerHTML = renderer(s.data);
+            el.classList.add('active');
+            document.getElementById('demoLabel').textContent = s.label;
+            document.getElementById('sprintLabel').textContent = `Sprint ${s.sprint}`;
+            document.querySelectorAll('.demo-nav button')[idx]?.classList.add('active');
+        }
+        function applyTheme(name) {
+            const vars = themes[name]; if (!vars) return;
+            Object.entries(vars).forEach(([k, v]) => document.documentElement.style.setProperty(k, v));
+            document.querySelectorAll('.theme-dot').forEach(d => d.classList.toggle('active', d.dataset.theme === name));
+            showSlide(current);
+        }
+        const nav = document.createElement('div'); nav.className = 'demo-nav';
+        slides.forEach((s, i) => { const btn = document.createElement('button'); btn.textContent = s.label; btn.onclick = () => showSlide(i); if (i === 0) btn.classList.add('active'); nav.appendChild(btn); });
+        document.body.appendChild(nav);
+        document.querySelectorAll('.theme-dot').forEach(d => { d.onclick = () => applyTheme(d.dataset.theme); });
+        document.addEventListener('keydown', e => { if (e.key === 'ArrowRight') showSlide(Math.min(current + 1, slides.length - 1)); if (e.key === 'ArrowLeft') showSlide(Math.max(current - 1, 0)); });
+        showSlide(0);
+    </script>
+</body>
+</html>

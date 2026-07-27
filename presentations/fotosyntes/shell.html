@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideCraft Showcase — SlideBoard</title>
+    <meta name="description" content="Showcase av SlideBoard och animerade slide-typer i SlideCraft Component Forge. All data är fiktiv/demo.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000; --surface: #1a1a1a; --card-bg: #2a2a2a; --card-bg-hover: #333333;
+            --text: #f1f5f9; --text-muted: rgba(255,255,255,0.7);
+            --accent: #f97316; --accent2: #a855f7;
+            --green: #22c55e; --yellow: #eab308; --red: #ef4444;
+            --border: rgba(255,255,255,0.15); --border-hover: rgba(255,255,255,0.3);
+            --sf-dur-fast: 0.2s; --sf-dur-normal: 0.3s;
+            --sf-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+        /* === HEADER === */
+        .showcase-header {
+            text-align: center; padding: 2.5rem 1rem 1rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .showcase-header h1 { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 900; }
+        .showcase-header h1 span { color: var(--accent); }
+        .showcase-header p { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem; }
+        .demo-badge {
+            display: inline-block; background: rgba(239,68,68,0.15); color: #ef4444;
+            padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.7rem; font-weight: 700;
+            margin-top: 0.6rem; letter-spacing: 0.08em; border: 1px solid rgba(239,68,68,0.3);
+        }
+
+        /* === THEME SWITCHER === */
+        .theme-row {
+            display: flex; justify-content: center; gap: 0.4rem;
+            padding: 0.8rem 0; flex-wrap: wrap;
+        }
+        .theme-pill {
+            padding: 0.25rem 0.6rem; border-radius: 999px; font-size: 0.65rem;
+            border: 1px solid var(--border); background: transparent; color: var(--text-muted);
+            cursor: pointer; transition: all 0.2s; min-height: 44px; display: inline-flex; align-items: center;
+        }
+        .theme-pill:hover { border-color: var(--text-muted); color: var(--text); }
+        .theme-pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* === SLIDEBOARD (SECTIONS & POSTERS) === */
+        .card-view {
+            padding: 1.5rem; max-width: 1400px; margin: 0 auto;
+        }
+        .card-view.hidden { display: none; }
+
+        .sb-section { max-width: 1400px; margin: 0 auto; padding: 0 0.5rem; }
+        .sb-section-title {
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--text-muted); margin: 2rem 0 0.8rem;
+            border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;
+        }
+        .sb-grid {
+            display: grid; gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+        @media (max-width: 480px) { .sb-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.7rem; } }
+        @media (min-width: 1200px) { .sb-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; } }
+
+        .sb-card {
+            position: relative; aspect-ratio: 16/10; padding: 0;
+            background: var(--card-bg); border: 2px solid var(--border);
+            border-radius: 14px; overflow: hidden; cursor: pointer;
+            transition: border-color var(--sf-dur-fast) var(--sf-ease-standard),
+                        transform var(--sf-dur-fast) var(--sf-ease-standard);
+            min-height: 44px; width: 100%; text-align: left;
+        }
+        .sb-card:hover, .sb-card:focus-visible { border-color: var(--accent); transform: translateY(-3px); }
+        .sb-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+        .sb-poster {
+            position: absolute; inset: 0; overflow: hidden;
+            pointer-events: none;
+        }
+        .sb-poster-inner {
+            width: 1280px; height: 800px;
+            transform-origin: top left;
+            pointer-events: none;
+        }
+        /* Animation neutraliser inside posters */
+        .sb-poster * {
+            animation-duration: 0.01s !important;
+            animation-delay: 0s !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01s !important;
+        }
+
+        .sb-card-label {
+            position: absolute; left: 0; right: 0; bottom: 0;
+            padding: 0.5rem 0.7rem; font-size: clamp(0.65rem, 1vw, 0.8rem);
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: var(--text); text-align: left; pointer-events: none; z-index: 2;
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+        .sb-card-label .sb-title {
+            font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .sb-card-label .sb-type {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
+            color: var(--accent); opacity: 0.85; margin-left: 0.5em; flex-shrink: 0;
+        }
+
+        .sb-poster-placeholder {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 0.4rem; background: var(--surface);
+        }
+        .sb-poster-icon { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+        .sb-poster-type { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
+
+        /* === FULLSCREEN VIEW === */
+        .slide-view {
+            position: fixed; inset: 0; background: var(--bg);
+            display: none; flex-direction: column; z-index: 100;
+        }
+        .slide-view.active { display: flex; }
+        .slide-content {
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 2rem; overflow-y: auto;
+        }
+        .close-btn {
+            position: fixed; top: 1rem; right: 1rem;
+            background: rgba(255,255,255,0.1); border: none; color: white;
+            width: 44px; height: 44px; border-radius: 50%; font-size: 1.3rem;
+            cursor: pointer; z-index: 101; transition: all 0.2s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .close-btn:hover { background: rgba(255,255,255,0.2); }
+
+        /* Nav arrows */
+        .nav-arrows {
+            position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 0.5rem; z-index: 101;
+        }
+        .nav-arrows button {
+            padding: 0.5rem 1.2rem; border: 1px solid var(--border); border-radius: 999px;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); color: var(--text-muted);
+            cursor: pointer; font-size: 0.8rem; transition: all 0.2s; min-height: 44px;
+        }
+        .nav-arrows button:hover { background: var(--surface); color: var(--text); }
+        .slide-counter {
+            position: fixed; bottom: 1.5rem; right: 1.5rem; font-size: 0.7rem;
+            color: var(--text-muted); font-family: 'JetBrains Mono', monospace; z-index: 101;
+        }
+        .demo-watermark {
+            position: fixed; top: 0.8rem; left: 1rem; font-size: 0.6rem; color: rgba(239,68,68,0.4);
+            font-weight: 700; letter-spacing: 0.1em; z-index: 101;
+        }
+
+        /* Custom title slide */
+        .slide-title-custom { text-align: center; padding: 2rem; }
+        .slide-title-custom h1 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; }
+        .slide-title-custom h1 span { color: var(--accent); }
+        .slide-title-custom .subtitle { font-size: clamp(1rem, 2vw, 1.4rem); color: var(--text-muted); margin-top: 1rem; }
+        .slide-title-custom .note { font-size: 0.8rem; color: rgba(239,68,68,0.6); margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="showcase-header" id="showcaseHeader">
+        <h1>SlideCraft <span>SlideBoard</span></h1>
+        <p>37 animerade slide-typer · 17 teman · 0 externa beroenden</p>
+        <div class="demo-badge">⚠️ ALL DATA ÄR FIKTIV / DEMO</div>
+        <div class="theme-row" id="themeRow"></div>
+        <button onclick="if(typeof window.openPresenterWindow === 'function') window.openPresenterWindow()" style="min-height:44px; padding:0.5rem 1rem; margin-top:1rem; border-radius:8px; background:rgba(99,102,241,0.15); border:1px solid #6366f1; color:var(--text); cursor:pointer;">🎙️ Öppna Presentatörsvy</button>
+    </div>
+
+    <div class="card-view" id="cardView"></div>
+
+    <div class="slide-view" id="slideView">
+        <button class="close-btn" id="closeBtn" title="Tillbaka (Esc eller B)">✕</button>
+        <div class="demo-watermark">DEMO — FIKTIV DATA</div>
+        <div class="slide-content" id="slideContent"></div>
+        <div class="nav-arrows">
+            <button id="prevBtn">← Föregående</button>
+            <button id="nextBtn">Nästa →</button>
+        </div>
+        <div class="slide-counter" id="slideCounter"></div>
+    </div>
+
+    <script src="component-forge.js"></script>
+    <script src="modules/slidecast/slidecast-presenter.js"></script>
+    <script src="modules/presenter/presenter-link.js"></script>
+    <script src="modules/rehearsal/rehearsal.js"></script>
+    <script src="modules/pulsecheck/pulsecheck.js"></script>
+
+    <script>
+    (function() {
+        'use strict';
+
+        let slidesData = [];
+        let currentIdx = 0;
+        let hasBoard = false;
+        let boardData = null;
+        let posterCleanups = [];
+        let currentCardEl = null;
+
+        // Global mirrors for SlideCast & SlideBoard compatibility
+        window.slidesData = slidesData;
+        window.currentSlideIndex = currentIdx;
+        window.renderCurrentSlide = function() { openSlide(window.currentSlideIndex || 0); };
+
+        // === THEMES ===
+        const themes = {
+            'Auditorium Dark': {"--bg":"#000","--surface":"#1a1a1a","--card-bg":"#2a2a2a","--card-bg-hover":"#333","--text":"#f1f5f9","--text-muted":"rgba(255,255,255,0.7)","--accent":"#f97316","--accent2":"#a855f7","--border":"rgba(255,255,255,0.15)","--border-hover":"rgba(255,255,255,0.3)"},
+            'Midnight Indigo': {"--bg":"#0f0b25","--surface":"#1a1440","--card-bg":"#241e54","--card-bg-hover":"#2e2668","--text":"#e8e4f8","--text-muted":"rgba(232,228,248,0.65)","--accent":"#a78bfa","--accent2":"#c084fc","--border":"rgba(167,139,250,0.2)","--border-hover":"rgba(167,139,250,0.4)"},
+            'Ember': {"--bg":"#0d0d0d","--surface":"#1c1210","--card-bg":"#2a1a15","--card-bg-hover":"#3a2520","--text":"#fde8d8","--text-muted":"rgba(253,232,216,0.65)","--accent":"#ff6b35","--accent2":"#ef4444","--border":"rgba(255,107,53,0.2)","--border-hover":"rgba(255,107,53,0.4)"},
+            'Cosmos': {"--bg":"#000005","--surface":"#0a0a1a","--card-bg":"#111128","--card-bg-hover":"#1a1a38","--text":"#e0f2fe","--text-muted":"rgba(224,242,254,0.6)","--accent":"#22d3ee","--accent2":"#06b6d4","--border":"rgba(34,211,238,0.2)","--border-hover":"rgba(34,211,238,0.4)"},
+            'Paper': {"--bg":"#faf7f2","--surface":"#f5f0e8","--card-bg":"#ede7db","--card-bg-hover":"#e2d9ca","--text":"#44403c","--text-muted":"rgba(68,64,60,0.65)","--accent":"#c2410c","--accent2":"#9a3412","--border":"rgba(68,64,60,0.15)","--border-hover":"rgba(68,64,60,0.3)"},
+            'Arctic': {"--bg":"#f0f9ff","--surface":"#e0f2fe","--card-bg":"#bae6fd","--card-bg-hover":"#7dd3fc","--text":"#0c4a6e","--text-muted":"rgba(12,74,110,0.65)","--accent":"#0ea5e9","--accent2":"#38bdf8","--border":"rgba(14,165,233,0.2)","--border-hover":"rgba(14,165,233,0.4)"},
+            'Meadow': {"--bg":"#f0fdf4","--surface":"#dcfce7","--card-bg":"#bbf7d0","--card-bg-hover":"#86efac","--text":"#14532d","--text-muted":"rgba(20,83,45,0.65)","--accent":"#16a34a","--accent2":"#15803d","--border":"rgba(22,163,74,0.2)","--border-hover":"rgba(22,163,74,0.4)"},
+            'Retro Terminal': {"--bg":"#000","--surface":"#0a0a0a","--card-bg":"#111","--card-bg-hover":"#1a1a1a","--text":"#00ff41","--text-muted":"rgba(0,255,65,0.5)","--accent":"#00ff41","--accent2":"#39ff14","--border":"rgba(0,255,65,0.15)","--border-hover":"rgba(0,255,65,0.35)"},
+            'Åstorp': {"--bg":"#fff","--surface":"#f1f5f9","--card-bg":"#e8eef6","--card-bg-hover":"#d0ddef","--text":"#1e293b","--text-muted":"rgba(30,41,59,0.7)","--accent":"#1e40af","--accent2":"#1d4ed8","--border":"rgba(30,64,175,0.15)","--border-hover":"rgba(30,64,175,0.3)"},
+            'Neon': {"--bg":"#0a0a0a","--surface":"#141414","--card-bg":"#1e1e1e","--card-bg-hover":"#2a2a2a","--text":"#fff","--text-muted":"rgba(255,255,255,0.6)","--accent":"#ff00ff","--accent2":"#00ffff","--border":"rgba(255,0,255,0.2)","--border-hover":"rgba(255,0,255,0.4)"},
+            'Nautilus': {"--bg":"#faf8f5","--surface":"#ffffff","--card-bg":"#f8fafc","--card-bg-hover":"#f1f5f9","--text":"#1e293b","--text-muted":"rgba(30,41,59,0.7)","--accent":"#0284c7","--accent2":"#0369a1","--border":"rgba(2,132,199,0.15)","--border-hover":"rgba(2,132,199,0.3)"}
+        };
+
+        let activeTheme = 'Nautilus';
+        const themeRow = document.getElementById('themeRow');
+        Object.keys(themes).forEach(name => {
+            const pill = document.createElement('button');
+            pill.className = 'theme-pill' + (name === activeTheme ? ' active' : '');
+            pill.textContent = name;
+            pill.onclick = () => applyTheme(name);
+            themeRow.appendChild(pill);
+        });
+
+        function applyTheme(name) {
+            const vars = themes[name]; if (!vars) return;
+            activeTheme = name;
+            Object.entries(vars).forEach(([k, v]) => document.documentElement.style.setProperty(k, v));
+            document.querySelectorAll('.theme-pill').forEach(p => p.classList.toggle('active', p.textContent === name));
+        }
+
+        // === TITLE SLIDE RENDERER (fallback) ===
+        window.slideTypeRegistry = window.slideTypeRegistry || {};
+        window.slideTypeRegistry['title'] = function(s) {
+            const parts = (s.title || '').split(' ');
+            const last = parts.length > 1 ? parts.pop() : '';
+            const main = parts.join(' ');
+            return `<div class="slide-title-custom">
+                <h1>${main}${last ? ` <span>${last}</span>` : ''}</h1>
+                <div class="subtitle">${s.subtitle || ''}</div>
+                ${s.note ? `<div class="note">${s.note}</div>` : ''}
+            </div>`;
+        };
+
+        // === VALIDATION (Step 1.3) ===
+        function validateSlides(data) {
+            const problems = [];
+            const seen = new Set();
+            const idRe = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+            (data.slides || []).forEach((s, i) => {
+                if (!s.id) problems.push('Slide ' + i + ' (' + (s.type || 'okänd typ') + ') saknar id');
+                else if (!idRe.test(s.id)) problems.push('Slide ' + i + ': ogiltigt id "' + s.id + '" (kräver kebab-case)');
+                else if (seen.has(s.id)) problems.push('Duplicerat id "' + s.id + '"');
+                seen.add(s.id);
+            });
+            if (data.board && Array.isArray(data.board.sections)) {
+                data.board.sections.forEach(sec => (sec.slides || []).forEach(id => {
+                    if (!seen.has(id)) problems.push('board refererar okänt id "' + id + '"');
+                }));
+            }
+            problems.forEach(p => console.warn('[SlideBoard] ' + p));
+            return problems;
+        }
+
+        // === ID LOOKUP & DEEPLINKS (Step 1.4) ===
+        function slideIndexById(id) {
+            return slidesData.findIndex(s => s.id === id);
+        }
+        window.slideIndexById = slideIndexById;
+
+        function openSlideById(id) {
+            const idx = slideIndexById(id);
+            if (idx >= 0) openSlide(idx);
+            else console.warn('[SlideBoard] okänt slide-id: ' + id);
+        }
+        window.openSlideById = openSlideById;
+
+        function updateUrlSlideParam(id) {
+            const params = new URLSearchParams(window.location.search);
+            if (id) {
+                params.set('slide', id);
+            } else {
+                params.delete('slide');
+            }
+            const newSearch = params.toString();
+            const newUrl = window.location.pathname + (newSearch ? '?' + newSearch : '') + window.location.hash;
+            window.history.replaceState(null, '', newUrl);
+        }
+
+        // === POSTER RENDERER (Step 1.5.2) ===
+        const POSTER_PLACEHOLDER_TYPES = new Set([
+            'semantic-nebula', 'letter-morph', 'token-spinner', 'quote',
+            'rewrite-progression', 'ai-conversation', 'before-after',
+            'prompt-reveal', 'pulse', 'drill-sync'
+        ]);
+        const POSTER_ICONS = {
+            'title': '🏠', 'word-cascade': '📝', 'box-reveal': '📦', 'bullet-build': '📋',
+            'line-chart': '📈', 'comparison': '⚖️', 'timeline-vertical': '📅',
+            'progress-ring': '🔘', 'number-wall': '🔢', 'bar-race': '📊'
+        };
+
+        function renderPoster(s) {
+            if (POSTER_PLACEHOLDER_TYPES.has(s.type) || !window.slideTypeRegistry[s.type]) {
+                return '<div class="sb-poster-placeholder">'
+                    + '<span class="sb-poster-icon">' + (POSTER_ICONS[s.type] || '📄') + '</span>'
+                    + '<span class="sb-poster-type">' + s.type + '</span></div>';
+            }
+            return window.slideTypeRegistry[s.type](s);
+        }
+
+        function destroyPosters() {
+            posterCleanups.forEach(fn => { try { fn(); } catch(e) {} });
+            posterCleanups = [];
+        }
+
+        function updatePosterScales() {
+            document.querySelectorAll('.sb-card').forEach(card => {
+                const inner = card.querySelector('.sb-poster-inner');
+                if (inner) {
+                    const scale = card.clientWidth / 1280;
+                    inner.style.transform = 'scale(' + scale + ')';
+                }
+            });
+        }
+
+        function renderAllPosters() {
+            if (!window.SlideForge) return;
+            const savedRegister = window.SlideForge.registerCleanup;
+            window.SlideForge.registerCleanup = function(fn) { posterCleanups.push(fn); };
+            try {
+                document.querySelectorAll('.sb-card').forEach(card => {
+                    const s = slidesData[slideIndexById(card.dataset.slideId)];
+                    if (!s) return;
+                    const posterEl = card.querySelector('.sb-poster');
+                    if (posterEl) {
+                        if (!POSTER_PLACEHOLDER_TYPES.has(s.type) && window.slideTypeRegistry[s.type]) {
+                            posterEl.innerHTML = '<div class="sb-poster-inner">' + renderPoster(s) + '</div>';
+                        } else {
+                            posterEl.innerHTML = renderPoster(s);
+                        }
+                    }
+                });
+            } finally {
+                window.SlideForge.registerCleanup = savedRegister;
+            }
+            updatePosterScales();
+        }
+
+        // Debounced resize for poster scaling
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(updatePosterScales, 100);
+        });
+
+        // === RENDER BOARD (Step 1.5.1) ===
+        function renderBoard() {
+            destroyPosters();
+            const gridContainer = document.getElementById('cardView');
+            gridContainer.innerHTML = '';
+
+            if (!hasBoard || !boardData || !Array.isArray(boardData.sections)) {
+                return;
+            }
+
+            const usedIds = new Set();
+            const sections = boardData.sections.map(sec => {
+                const validSlides = (sec.slides || []).filter(id => {
+                    const idx = slideIndexById(id);
+                    if (idx >= 0) {
+                        usedIds.add(id);
+                        return true;
+                    }
+                    return false;
+                });
+                return { title: sec.title, slides: validSlides };
+            });
+
+            // Automatic 'Övrigt' section for orphaned slides
+            const orphanIds = slidesData.map(s => s.id).filter(id => id && !usedIds.has(id));
+            if (orphanIds.length > 0) {
+                sections.push({ title: 'Övrigt', slides: orphanIds });
+            }
+
+            sections.forEach(sec => {
+                if (sec.slides.length === 0) return;
+                const secEl = document.createElement('section');
+                secEl.className = 'sb-section';
+
+                const titleEl = document.createElement('h2');
+                titleEl.className = 'sb-section-title';
+                titleEl.textContent = sec.title;
+                secEl.appendChild(titleEl);
+
+                const gridEl = document.createElement('div');
+                gridEl.className = 'sb-grid';
+
+                sec.slides.forEach(id => {
+                    const idx = slideIndexById(id);
+                    if (idx < 0) return;
+                    const s = slidesData[idx];
+
+                    const card = document.createElement('button');
+                    card.className = 'sb-card';
+                    card.dataset.slideId = s.id;
+
+                    const posterDiv = document.createElement('div');
+                    posterDiv.className = 'sb-poster';
+                    card.appendChild(posterDiv);
+
+                    const labelDiv = document.createElement('div');
+                    labelDiv.className = 'sb-card-label';
+                    labelDiv.innerHTML = `<span class="sb-title">${s.cardTitle || s.title || s.type}</span><span class="sb-type">${s.type}</span>`;
+                    card.appendChild(labelDiv);
+
+                    card.onclick = () => openSlideFromCard(card, idx);
+                    gridEl.appendChild(card);
+                });
+
+                secEl.appendChild(gridEl);
+                gridContainer.appendChild(secEl);
+            });
+
+            renderAllPosters();
+        }
+
+        // === FULLSCREEN FLIP & SLIDE NAVIGATION (Step 1.6) ===
+        function openSlide(idx) {
+            currentIdx = idx;
+            window.currentSlideIndex = idx;
+            const s = slidesData[idx];
+            if (!s) return;
+
+            const renderer = window.slideTypeRegistry[s.type];
+            const content = renderer ? renderer(s) : `<div style="text-align:center"><h2>${s.title || s.type}</h2><p>Typ "${s.type}" — ingen renderer registrerad</p></div>`;
+
+            document.getElementById('slideContent').innerHTML = content;
+            document.getElementById('slideView').classList.add('active');
+            if (hasBoard) {
+                document.getElementById('cardView').classList.add('hidden');
+                document.getElementById('showcaseHeader').style.display = 'none';
+            }
+            document.getElementById('slideCounter').textContent = `${idx + 1} / ${slidesData.length}`;
+
+            if (s.id) updateUrlSlideParam(s.id);
+        }
+        window.openSlide = openSlide;
+
+        function openSlideFromCard(cardEl, idx) {
+            currentCardEl = cardEl;
+            const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!isReduced && cardEl) {
+                const first = cardEl.getBoundingClientRect();
+                openSlide(idx);
+                const view = document.getElementById('slideView');
+                const dx = first.left + first.width / 2 - window.innerWidth / 2;
+                const dy = first.top + first.height / 2 - window.innerHeight / 2;
+                const sx = first.width / window.innerWidth;
+                const sy = first.height / window.innerHeight;
+
+                view.style.transformOrigin = 'center';
+                view.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+                view.style.opacity = '0.5';
+
+                requestAnimationFrame(() => {
+                    view.style.transition = 'transform var(--sf-dur-normal) var(--sf-ease-standard), opacity var(--sf-dur-normal) var(--sf-ease-standard)';
+                    view.style.transform = 'translate(0,0) scale(1,1)';
+                    view.style.opacity = '1';
+                    view.addEventListener('transitionend', () => { view.style.transition = ''; }, { once: true });
+                });
+            } else {
+                openSlide(idx);
+            }
+        }
+
+        function closeSlide() {
+            if (window.SlideForge && typeof window.SlideForge.destroyAll === 'function') {
+                window.SlideForge.destroyAll();
+            }
+
+            const s = slidesData[currentIdx];
+            let targetCard = null;
+            if (s && s.id) {
+                targetCard = document.querySelector(`.sb-card[data-slide-id="${s.id}"]`);
+            }
+            if (!targetCard) targetCard = currentCardEl;
+
+            const view = document.getElementById('slideView');
+            const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (targetCard && !isReduced && view.classList.contains('active')) {
+                targetCard.scrollIntoView({ block: 'nearest' });
+                const last = targetCard.getBoundingClientRect();
+                const dx = last.left + last.width / 2 - window.innerWidth / 2;
+                const dy = last.top + last.height / 2 - window.innerHeight / 2;
+                const sx = last.width / window.innerWidth;
+                const sy = last.height / window.innerHeight;
+
+                view.style.transition = 'transform var(--sf-dur-normal) var(--sf-ease-standard), opacity var(--sf-dur-normal) var(--sf-ease-standard)';
+                view.style.transformOrigin = 'center';
+                view.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+                view.style.opacity = '0';
+
+                const finishClose = () => {
+                    view.classList.remove('active');
+                    view.style.transition = '';
+                    view.style.transform = '';
+                    view.style.opacity = '';
+                    if (hasBoard) {
+                        document.getElementById('cardView').classList.remove('hidden');
+                        document.getElementById('showcaseHeader').style.display = '';
+                    }
+                    updateUrlSlideParam(null);
+                };
+                view.addEventListener('transitionend', finishClose, { once: true });
+                setTimeout(finishClose, 350);
+            } else {
+                view.classList.remove('active');
+                if (hasBoard) {
+                    document.getElementById('cardView').classList.remove('hidden');
+                    document.getElementById('showcaseHeader').style.display = '';
+                }
+                updateUrlSlideParam(null);
+            }
+        }
+
+        document.getElementById('closeBtn').onclick = closeSlide;
+        document.getElementById('prevBtn').onclick = () => { if (currentIdx > 0) openSlide(currentIdx - 1); };
+        document.getElementById('nextBtn').onclick = () => { if (currentIdx < slidesData.length - 1) openSlide(currentIdx + 1); };
+
+        // Keyboard controls (Escape, Arrow keys, Space, B)        document.body.addEventListener('wheel', e => {
+            if (!document.getElementById('slideView').classList.contains('active')) return;
+            if (window._scrollThrottling) return;
+            window._scrollThrottling = true;
+            setTimeout(() => window._scrollThrottling = false, 400);
+            if (e.deltaY > 50) nextSlide();
+            else if (e.deltaY < -50) prevSlide();
+        }, { passive: true });
+
+        document.addEventListener('keydown', e => {
+            const isViewActive = document.getElementById('slideView').classList.contains('active');
+            if (e.key === 'Escape') closeSlide();
+            if (isViewActive) {
+                if (e.key === 'b' || e.key === 'B') { closeSlide(); }
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    e.preventDefault();
+                    if (window.SlideForge && typeof window.SlideForge.nextStep === 'function' && window.SlideForge.nextStep()) return;
+                    if (currentIdx < slidesData.length - 1) openSlide(currentIdx + 1);
+                }
+                if (e.key === 'ArrowLeft') {
+                    if (window.SlideForge && typeof window.SlideForge.prevStep === 'function' && window.SlideForge.prevStep()) return;
+                    if (currentIdx > 0) openSlide(currentIdx - 1);
+                }
+            }
+        });
+
+        // Touch swipe-down gesture to close fullscreen
+        let touchStartY = 0, touchStartX = 0;
+        const slideView = document.getElementById('slideView');
+        slideView.addEventListener('touchstart', e => {
+            if (e.touches.length === 1) {
+                touchStartY = e.touches[0].clientY;
+                touchStartX = e.touches[0].clientX;
+            }
+        }, { passive: true });
+
+        slideView.addEventListener('touchend', e => {
+            if (e.changedTouches.length === 1) {
+                const dy = e.changedTouches[0].clientY - touchStartY;
+                const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
+                if (dy > 80 && dx < 40) {
+                    closeSlide();
+                }
+            }
+        }, { passive: true });
+
+        function resolveSlide(slide, bankMap) {
+            if (!slide || !slide.ref) return slide;
+            const base = bankMap ? bankMap[slide.ref] : null;
+            if (!base) {
+                return Object.assign({}, slide, {
+                    type: 'callout',
+                    title: `⚠️ Refererad slide saknas: ${slide.ref}`,
+                    text: 'Kontrollera att refererad slide finns i slide_bank.json.',
+                    variant: 'warning'
+                });
+            }
+            const merged = JSON.parse(JSON.stringify(base));
+            merged.id = slide.id || base.id;
+            merged.ref_base = slide.ref;
+            if (slide.override && typeof slide.override === 'object') {
+                Object.assign(merged, slide.override);
+            }
+            return merged;
+        }
+
+        // === LOAD SLIDES ===
+        function processLoadedData(data) {
+            validateSlides(data);
+            const bankMap = (window.slideBank && Array.isArray(window.slideBank.slides)) ?
+                Object.fromEntries(window.slideBank.slides.map(s => [s.id, s])) : {};
+            slidesData = (data.slides || []).map(s => resolveSlide(s, bankMap));
+            window.slidesData = slidesData;
+            boardData = data.board || null;
+            hasBoard = !!(boardData && Array.isArray(boardData.sections) && boardData.sections.length > 0);
+
+            if (window.SlideForge && typeof window.SlideForge.applyPreset === 'function') {
+                const urlPreset = new URLSearchParams(window.location.search).get('preset');
+                window.SlideForge.applyPreset(urlPreset || data.preset || 'classroom');
+            }
+
+            const headerP = document.querySelector('.showcase-header p');
+            if (headerP && data.meta) headerP.textContent = (data.meta.subtitle || '') + ' · SlideBoard';
+
+            if (hasBoard) {
+                renderBoard();
+                // Check for deep-link slide parameter
+                const targetId = new URLSearchParams(window.location.search).get('slide');
+                if (targetId) {
+                    openSlideById(targetId);
+                }
+            } else {
+                // Linear mode fallback (Step 1.8)
+                document.getElementById('cardView').classList.add('hidden');
+                openSlide(0);
+            }
+        }
+
+        function loadSlides() {
+            if (window.location.protocol === 'file:') {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'slides.json', true);
+                xhr.onload = function() {
+                    if (xhr.status === 200 || xhr.status === 0) {
+                        try {
+                            const data = JSON.parse(xhr.responseText);
+                            processLoadedData(data);
+                        } catch(e) {
+                            console.error('JSON parse error:', e);
+                            document.getElementById('cardView').innerHTML = '<p style="text-align:center;padding:4rem;color:var(--red)">JSON-syntaxfel: ' + e.message + '</p>';
+                        }
+                    }
+                };
+                xhr.onerror = function() {
+                    document.getElementById('cardView').innerHTML = '<p style="text-align:center;padding:4rem;color:var(--red)">Kunde inte ladda slides.json</p>';
+                };
+                xhr.send();
+            } else {
+                fetch('slides.json')
+                    .then(r => r.json())
+                    .then(data => {
+                        processLoadedData(data);
+                    })
+                    .catch(err => {
+                        console.error('Failed to load slides.json:', err);
+                        document.getElementById('cardView').innerHTML = '<p style="text-align:center;padding:4rem;color:var(--red)">Kunde inte ladda slides.json</p>';
+                    });
+            }
+        }
+
+        loadSlides();
+    })();
+    </script>
+</body>
+</html>

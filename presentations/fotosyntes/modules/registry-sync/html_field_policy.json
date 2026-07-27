@@ -1,0 +1,23 @@
+{
+  "_comment": "Definierar vilka JSON-fält i slide-payloads som får innehålla rå HTML. Alla andra fält escapas av safeField() i component-forge.js.",
+  "html_allowed": [
+    "titleHtml",
+    "warnings",
+    "resultContent",
+    "code",
+    "promptText",
+    "intro",
+    "description",
+    "newsFlash"
+  ],
+  "always_escaped": [
+    "title",
+    "text",
+    "subtitle",
+    "name",
+    "label",
+    "author",
+    "attribution",
+    "caption"
+  ]
+}

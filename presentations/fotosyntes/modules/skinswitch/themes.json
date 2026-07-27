@@ -1,0 +1,431 @@
+{
+    "meta": {
+        "version": "2.0",
+        "description": "SlideCraft SkinSwitch — Runtime theme definitions (20 themes)",
+        "created": "2026-05-01",
+        "updated": "2026-07-03"
+    },
+    "core": ["auditorium-dark", "teams-white", "biology-green", "municipal-blue", "mission-dark"],
+    "themes": {
+        "auditorium-dark": {
+            "name": "Auditorium Dark",
+            "icon": "🌑",
+            "description": "Standard auditorium mode. Pure black, maximum contrast.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#000000",
+                "--surface": "#1a1a1a",
+                "--card-bg": "#2a2a2a",
+                "--card-bg-hover": "#333333",
+                "--text": "#f1f5f9",
+                "--text-muted": "rgba(255, 255, 255, 0.7)",
+                "--accent": "#f97316",
+                "--accent2": "#a855f7",
+                "--green": "#22c55e",
+                "--yellow": "#eab308",
+                "--red": "#ef4444",
+                "--border": "rgba(255, 255, 255, 0.15)",
+                "--border-hover": "rgba(255, 255, 255, 0.3)"
+            }
+        },
+        "teams-white": {
+            "name": "Teams White",
+            "icon": "☀️",
+            "description": "Professional white mode for Teams/Zoom screen sharing.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#ffffff",
+                "--surface": "#f8fafc",
+                "--card-bg": "#f1f5f9",
+                "--card-bg-hover": "#e2e8f0",
+                "--text": "#1e293b",
+                "--text-muted": "rgba(30, 41, 59, 0.7)",
+                "--accent": "#2563eb",
+                "--accent2": "#7c3aed",
+                "--green": "#16a34a",
+                "--yellow": "#ca8a04",
+                "--red": "#dc2626",
+                "--border": "rgba(30, 41, 59, 0.15)",
+                "--border-hover": "rgba(30, 41, 59, 0.3)"
+            }
+        },
+        "biology-green": {
+            "name": "Biology Green",
+            "icon": "🌿",
+            "description": "Organic palette for biology/nature science lessons.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#0a1a0a",
+                "--surface": "#132613",
+                "--card-bg": "#1a3a1a",
+                "--card-bg-hover": "#245024",
+                "--text": "#e8f5e9",
+                "--text-muted": "rgba(232, 245, 233, 0.7)",
+                "--accent": "#4caf50",
+                "--accent2": "#81c784",
+                "--green": "#66bb6a",
+                "--yellow": "#ffeb3b",
+                "--red": "#ef5350",
+                "--border": "rgba(76, 175, 80, 0.2)",
+                "--border-hover": "rgba(76, 175, 80, 0.4)"
+            }
+        },
+        "municipal-blue": {
+            "name": "Municipal Blue",
+            "icon": "🏛️",
+            "description": "Professional blue for management and municipal presentations.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#0a0e1a",
+                "--surface": "#111827",
+                "--card-bg": "#1e293b",
+                "--card-bg-hover": "#334155",
+                "--text": "#f1f5f9",
+                "--text-muted": "rgba(241, 245, 249, 0.7)",
+                "--accent": "#3b82f6",
+                "--accent2": "#8b5cf6",
+                "--green": "#22c55e",
+                "--yellow": "#eab308",
+                "--red": "#ef4444",
+                "--border": "rgba(59, 130, 246, 0.2)",
+                "--border-hover": "rgba(59, 130, 246, 0.4)"
+            }
+        },
+        "mission-dark": {
+            "name": "Mission Dark",
+            "icon": "🎯",
+            "description": "High-intensity drill mode for NP preparation.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#1a1a1a",
+                "--surface": "#252525",
+                "--card-bg": "#2d2d2d",
+                "--card-bg-hover": "#3a3a3a",
+                "--text": "#ffffff",
+                "--text-muted": "rgba(255, 255, 255, 0.6)",
+                "--accent": "#ff6b35",
+                "--accent2": "#ff4081",
+                "--green": "#00e676",
+                "--yellow": "#ffea00",
+                "--red": "#ff1744",
+                "--border": "rgba(255, 107, 53, 0.2)",
+                "--border-hover": "rgba(255, 107, 53, 0.4)"
+            }
+        },
+        "midnight-indigo": {
+            "name": "Midnight Indigo",
+            "icon": "🌌",
+            "description": "Deep blue-purple for evening lectures and conferences.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#0f0b25",
+                "--surface": "#1a1440",
+                "--card-bg": "#241e54",
+                "--card-bg-hover": "#2e2668",
+                "--text": "#e8e4f8",
+                "--text-muted": "rgba(232, 228, 248, 0.65)",
+                "--accent": "#a78bfa",
+                "--accent2": "#c084fc",
+                "--green": "#34d399",
+                "--yellow": "#fbbf24",
+                "--red": "#f87171",
+                "--border": "rgba(167, 139, 250, 0.2)",
+                "--border-hover": "rgba(167, 139, 250, 0.4)"
+            }
+        },
+        "ember": {
+            "name": "Ember",
+            "icon": "🔥",
+            "description": "Coal-black with orange/red accents for risk and safety topics.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#0d0d0d",
+                "--surface": "#1c1210",
+                "--card-bg": "#2a1a15",
+                "--card-bg-hover": "#3a2520",
+                "--text": "#fde8d8",
+                "--text-muted": "rgba(253, 232, 216, 0.65)",
+                "--accent": "#ff6b35",
+                "--accent2": "#ef4444",
+                "--green": "#4ade80",
+                "--yellow": "#fbbf24",
+                "--red": "#ef4444",
+                "--border": "rgba(255, 107, 53, 0.2)",
+                "--border-hover": "rgba(255, 107, 53, 0.4)"
+            }
+        },
+        "forest-night": {
+            "name": "Forest Night",
+            "icon": "🌲",
+            "description": "Dark green with teal accents for ecology and sustainability.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#0a1612",
+                "--surface": "#0f201a",
+                "--card-bg": "#162d24",
+                "--card-bg-hover": "#1e3d30",
+                "--text": "#d1fae5",
+                "--text-muted": "rgba(209, 250, 229, 0.65)",
+                "--accent": "#14b8a6",
+                "--accent2": "#5eead4",
+                "--green": "#34d399",
+                "--yellow": "#fde68a",
+                "--red": "#fb7185",
+                "--border": "rgba(20, 184, 166, 0.2)",
+                "--border-hover": "rgba(20, 184, 166, 0.4)"
+            }
+        },
+        "slate": {
+            "name": "Slate",
+            "icon": "🪨",
+            "description": "Neutral grey for technical documentation and data-heavy slides.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#18181b",
+                "--surface": "#27272a",
+                "--card-bg": "#3f3f46",
+                "--card-bg-hover": "#52525b",
+                "--text": "#fafafa",
+                "--text-muted": "rgba(250, 250, 250, 0.6)",
+                "--accent": "#fbbf24",
+                "--accent2": "#a1a1aa",
+                "--green": "#4ade80",
+                "--yellow": "#fbbf24",
+                "--red": "#f87171",
+                "--border": "rgba(161, 161, 170, 0.2)",
+                "--border-hover": "rgba(161, 161, 170, 0.4)"
+            }
+        },
+        "cosmos": {
+            "name": "Cosmos",
+            "icon": "🪐",
+            "description": "Space-black with cyan accents for physics and futurism.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#000005",
+                "--surface": "#0a0a1a",
+                "--card-bg": "#111128",
+                "--card-bg-hover": "#1a1a38",
+                "--text": "#e0f2fe",
+                "--text-muted": "rgba(224, 242, 254, 0.6)",
+                "--accent": "#22d3ee",
+                "--accent2": "#06b6d4",
+                "--green": "#34d399",
+                "--yellow": "#fde68a",
+                "--red": "#fb7185",
+                "--border": "rgba(34, 211, 238, 0.2)",
+                "--border-hover": "rgba(34, 211, 238, 0.4)"
+            }
+        },
+        "paper": {
+            "name": "Paper",
+            "icon": "📄",
+            "description": "Warm off-white with terracotta accent for academic seminars.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#faf7f2",
+                "--surface": "#f5f0e8",
+                "--card-bg": "#ede7db",
+                "--card-bg-hover": "#e2d9ca",
+                "--text": "#44403c",
+                "--text-muted": "rgba(68, 64, 60, 0.65)",
+                "--accent": "#c2410c",
+                "--accent2": "#9a3412",
+                "--green": "#16a34a",
+                "--yellow": "#a16207",
+                "--red": "#b91c1c",
+                "--border": "rgba(68, 64, 60, 0.15)",
+                "--border-hover": "rgba(68, 64, 60, 0.3)"
+            }
+        },
+        "arctic": {
+            "name": "Arctic",
+            "icon": "❄️",
+            "description": "Ice-cold whites with sky blue accents for clinical precision.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#f0f9ff",
+                "--surface": "#e0f2fe",
+                "--card-bg": "#bae6fd",
+                "--card-bg-hover": "#7dd3fc",
+                "--text": "#0c4a6e",
+                "--text-muted": "rgba(12, 74, 110, 0.65)",
+                "--accent": "#0ea5e9",
+                "--accent2": "#38bdf8",
+                "--green": "#059669",
+                "--yellow": "#ca8a04",
+                "--red": "#dc2626",
+                "--border": "rgba(14, 165, 233, 0.2)",
+                "--border-hover": "rgba(14, 165, 233, 0.4)"
+            }
+        },
+        "meadow": {
+            "name": "Meadow",
+            "icon": "🌻",
+            "description": "Light green with warm accents for biology (light variant).",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#f0fdf4",
+                "--surface": "#dcfce7",
+                "--card-bg": "#bbf7d0",
+                "--card-bg-hover": "#86efac",
+                "--text": "#14532d",
+                "--text-muted": "rgba(20, 83, 45, 0.65)",
+                "--accent": "#16a34a",
+                "--accent2": "#15803d",
+                "--green": "#22c55e",
+                "--yellow": "#facc15",
+                "--red": "#dc2626",
+                "--border": "rgba(22, 163, 74, 0.2)",
+                "--border-hover": "rgba(22, 163, 74, 0.4)"
+            }
+        },
+        "coral": {
+            "name": "Coral",
+            "icon": "🐚",
+            "description": "Soft rosé with coral accents for workshops and well-being topics.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#fff1f2",
+                "--surface": "#ffe4e6",
+                "--card-bg": "#fecdd3",
+                "--card-bg-hover": "#fda4af",
+                "--text": "#1e3a5f",
+                "--text-muted": "rgba(30, 58, 95, 0.65)",
+                "--accent": "#fb7185",
+                "--accent2": "#f43f5e",
+                "--green": "#059669",
+                "--yellow": "#d97706",
+                "--red": "#e11d48",
+                "--border": "rgba(251, 113, 133, 0.2)",
+                "--border-hover": "rgba(251, 113, 133, 0.4)"
+            }
+        },
+        "retro-terminal": {
+            "name": "Retro Terminal",
+            "icon": "💾",
+            "description": "Green-on-black CRT aesthetic for coding and tech history.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#000000",
+                "--surface": "#0a0a0a",
+                "--card-bg": "#111111",
+                "--card-bg-hover": "#1a1a1a",
+                "--text": "#00ff41",
+                "--text-muted": "rgba(0, 255, 65, 0.5)",
+                "--accent": "#00ff41",
+                "--accent2": "#39ff14",
+                "--green": "#00ff41",
+                "--yellow": "#ffff00",
+                "--red": "#ff0000",
+                "--border": "rgba(0, 255, 65, 0.15)",
+                "--border-hover": "rgba(0, 255, 65, 0.35)"
+            }
+        },
+        "astorp": {
+            "name": "Åstorp",
+            "icon": "🏘️",
+            "description": "Municipal branding: white background, Åstorp blue and gold.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#ffffff",
+                "--surface": "#f1f5f9",
+                "--card-bg": "#e8eef6",
+                "--card-bg-hover": "#d0ddef",
+                "--text": "#1e293b",
+                "--text-muted": "rgba(30, 41, 59, 0.7)",
+                "--accent": "#1e40af",
+                "--accent2": "#1d4ed8",
+                "--green": "#16a34a",
+                "--yellow": "#b8860b",
+                "--red": "#dc2626",
+                "--border": "rgba(30, 64, 175, 0.15)",
+                "--border-hover": "rgba(30, 64, 175, 0.3)"
+            }
+        },
+        "neon": {
+            "name": "Neon",
+            "icon": "💜",
+            "description": "High-energy neon palette for gamification and celebrations.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#0a0a0a",
+                "--surface": "#141414",
+                "--card-bg": "#1e1e1e",
+                "--card-bg-hover": "#2a2a2a",
+                "--text": "#ffffff",
+                "--text-muted": "rgba(255, 255, 255, 0.6)",
+                "--accent": "#ff00ff",
+                "--accent2": "#00ffff",
+                "--green": "#39ff14",
+                "--yellow": "#ffff00",
+                "--red": "#ff0040",
+                "--border": "rgba(255, 0, 255, 0.2)",
+                "--border-hover": "rgba(255, 0, 255, 0.4)"
+            }
+        },
+        "calm": {
+            "name": "Calm",
+            "icon": "🌿",
+            "description": "Lugn — reducerade animationer, mörkt och avslappnat.",
+            "motion-scale": "0.4",
+            "vars": {
+                "--bg": "#000000",
+                "--surface": "#1a1a1a",
+                "--card-bg": "#2a2a2a",
+                "--card-bg-hover": "#333333",
+                "--text": "#f1f5f9",
+                "--text-muted": "rgba(255, 255, 255, 0.7)",
+                "--accent": "#f97316",
+                "--accent2": "#a855f7",
+                "--green": "#22c55e",
+                "--yellow": "#eab308",
+                "--red": "#ef4444",
+                "--border": "rgba(255, 255, 255, 0.15)",
+                "--border-hover": "rgba(255, 255, 255, 0.3)"
+            }
+        },
+        "daylight": {
+            "name": "Daylight",
+            "icon": "☀️",
+            "description": "Impressionistisk sage/terracotta för svag projektor i ljust klassrum.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#faf8f5",
+                "--surface": "#f0ede8",
+                "--card-bg": "#ffffff",
+                "--card-bg-hover": "#fefefe",
+                "--text": "#1a1a1a",
+                "--text-muted": "rgba(26,26,26,0.55)",
+                "--accent": "#7c8c6e",
+                "--accent2": "#c4724b",
+                "--green": "#558b5a",
+                "--yellow": "#b8922e",
+                "--red": "#c44b4b",
+                "--border": "rgba(26,26,26,0.12)",
+                "--border-hover": "rgba(26,26,26,0.22)"
+            }
+        },
+        "impressionist": {
+            "name": "Impressionist",
+            "icon": "🎨",
+            "description": "Fullständig impressionistisk palett för föräldramöten och elevhälsa.",
+            "motion-scale": "1",
+            "vars": {
+                "--bg": "#f5f0e8",
+                "--surface": "#ebe5d8",
+                "--card-bg": "#faf6ef",
+                "--card-bg-hover": "#fdf9f3",
+                "--text": "#2c2417",
+                "--text-muted": "rgba(44,36,23,0.55)",
+                "--accent": "#8fa67a",
+                "--accent2": "#d4956a",
+                "--green": "#6b8f5e",
+                "--yellow": "#c4a64e",
+                "--red": "#b85c5c",
+                "--border": "rgba(44,36,23,0.1)",
+                "--border-hover": "rgba(44,36,23,0.2)"
+            }
+        }
+    }
+}

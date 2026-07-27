@@ -1,0 +1,2466 @@
+{
+  "meta": {
+    "generated": "2026-05-01T20:59:19.647Z",
+    "gaiaRoot": "/Users/hakankarlsson/Library/CloudStorage/GoogleDrive-hlg.karlsson@gmail.com/Min enhet/🌎GAIA",
+    "version": "1.0"
+  },
+  "stats": {
+    "totalPresentations": 63,
+    "totalSlides": 268,
+    "manifestPresentations": 3,
+    "standalonePresentations": 60
+  },
+  "presentations": [
+    {
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "directory": "Deployments/CRE_APT_jan2026",
+      "type": "json-manifest",
+      "project": "AI & Elevhälsa",
+      "event": "APT Centrala Resursenheten",
+      "date": "2026-01-23",
+      "slideCount": 30,
+      "slides": [
+        {
+          "index": 0,
+          "id": "title",
+          "type": "title",
+          "title": "AI & Elevhälsa",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "title",
+            "elevhälsa"
+          ]
+        },
+        {
+          "index": 1,
+          "id": "presenter",
+          "type": "presenter",
+          "title": "Kommunlektor",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "presenter",
+            "biology"
+          ]
+        },
+        {
+          "index": 2,
+          "id": "dialog-first",
+          "type": "quote",
+          "title": "Dialog före monolog. Avbryt mig. Ställ frågor. Vi lär av var...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 3,
+          "id": "ai-intro",
+          "type": "step-slide",
+          "title": "AI är inget nytt!",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "step-slide",
+            "interactive"
+          ]
+        },
+        {
+          "index": 4,
+          "id": "tredje-stolen",
+          "type": "quote",
+          "title": "I samtalsrummet finns nu ofta en osynlig tredje stol – ockup...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 5,
+          "id": "rand-statistik",
+          "type": "stat",
+          "title": "1 av 5 unga vuxna (18-21 år) använder AI-chatbotar för råd om psykisk hälsa. Bland tonåringar (14-17 år) är siffran 13%.",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "stat"
+          ]
+        },
+        {
+          "index": 6,
+          "id": "gps-metafor",
+          "type": "grid",
+          "title": "GPS-metaforen: AI som vägvisare",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid"
+          ]
+        },
+        {
+          "index": 7,
+          "id": "falsk-empati",
+          "type": "quote",
+          "title": "'Jag förstår att du känner dig ledsen.' AI simulerar empati ...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 8,
+          "id": "gemini-vs-notebooklm",
+          "type": "grid",
+          "title": "Två verktyg – två syften",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid"
+          ]
+        },
+        {
+          "index": 9,
+          "id": "oecd-56",
+          "type": "stat",
+          "title": "56% av svenska 15-åringar har inte använt AI i skolan",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "stat",
+            "statistics"
+          ]
+        },
+        {
+          "index": 10,
+          "id": "ai-commission",
+          "type": "quote",
+          "title": "Om skolan inte introducerar eleverna till AI finns risken at...",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 11,
+          "id": "token-demo",
+          "type": "token-demo",
+          "title": "Så funkar GPT",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "token-demo",
+            "interactive"
+          ]
+        },
+        {
+          "index": 12,
+          "id": "possibilities",
+          "type": "modal-cards",
+          "title": "Hur kan AI hjälpa elevhälsan?",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "modal-cards",
+            "elevhälsa"
+          ]
+        },
+        {
+          "index": 13,
+          "id": "risks-quad",
+          "type": "modal-cards",
+          "title": "4 riskområden",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "modal-cards"
+          ]
+        },
+        {
+          "index": 14,
+          "id": "incidents",
+          "type": "incidents",
+          "title": "Dokumenterade konsekvenser",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "incidents",
+            "ai-safety"
+          ]
+        },
+        {
+          "index": 15,
+          "id": "samtalsnycklar",
+          "type": "grid",
+          "title": "Samtalsnycklar: Fråga om AI-användning",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid",
+            "statistics"
+          ]
+        },
+        {
+          "index": 16,
+          "id": "aldrig-i-prompten",
+          "type": "grid",
+          "title": "Aldrig i prompten (GDPR)",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid",
+            "regulatory"
+          ]
+        },
+        {
+          "index": 17,
+          "id": "human-in-the-loop",
+          "type": "quote",
+          "title": "Human in the loop: Ingen AI-text får skickas till elever uta...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 18,
+          "id": "traffic-light",
+          "type": "traffic-light",
+          "title": "Vad kan elevhälsan göra med AI?",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "traffic-light",
+            "elevhälsa"
+          ]
+        },
+        {
+          "index": 19,
+          "id": "vep-prompt",
+          "type": "prompt-demo",
+          "title": "Prompt: Virtuell expertpanel",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "prompt-demo",
+            "ai"
+          ]
+        },
+        {
+          "index": 20,
+          "id": "grok-incident",
+          "type": "quote",
+          "title": "Elon Musks AI Grok användes för att skapa avklädda deepfake-...",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 21,
+          "id": "misinfo-disinfo",
+          "type": "grid",
+          "title": "Sanning i gungning",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid",
+            "elevhälsa"
+          ]
+        },
+        {
+          "index": 22,
+          "id": "sewell-tragedy",
+          "type": "quote",
+          "title": "Sewell, 14 år, isolerade sig med en AI-chatbot som blev hans...",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 23,
+          "id": "youtube-deepfake",
+          "type": "video-link",
+          "title": "Syntetisk sanning",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "video-link"
+          ]
+        },
+        {
+          "index": 24,
+          "id": "temperatur",
+          "type": "grid",
+          "title": "Temperatur: Slump vs. förutsägbarhet",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid"
+          ]
+        },
+        {
+          "index": 25,
+          "id": "ai-detektion",
+          "type": "quote",
+          "title": "Det finns inga system som säkert kan bedöma om text är AI-ge...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 26,
+          "id": "hinton-varning",
+          "type": "presenter",
+          "title": "Nobelpristagare AI 2024",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "presenter"
+          ]
+        },
+        {
+          "index": 27,
+          "id": "eu-ai-act",
+          "type": "step-slide",
+          "title": "EU AI Act: Förbjudna AI-system",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "step-slide",
+            "interactive",
+            "regulatory"
+          ]
+        },
+        {
+          "index": 28,
+          "id": "policy-reflektion",
+          "type": "grid",
+          "title": "Har vi...?",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid"
+          ]
+        },
+        {
+          "index": 29,
+          "id": "tools",
+          "type": "tool-links",
+          "title": "Verktyg för workshopen",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "tool-links"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "directory": "Deployments/bjornekulla-ai",
+      "type": "json-manifest",
+      "project": "AI-Workshop Björnekullaskolan",
+      "event": "Workshop 7-9",
+      "date": "2026-04-27",
+      "slideCount": 17,
+      "slides": [
+        {
+          "index": 0,
+          "id": "title",
+          "type": "title",
+          "title": "Från publik till dirigent",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "title"
+          ]
+        },
+        {
+          "index": 1,
+          "id": "dialog-first",
+          "type": "quote",
+          "title": "Dialog",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 2,
+          "id": "olampligt-ai",
+          "type": "rewrite-progression",
+          "title": "När är det olämpligt?",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "rewrite-progression"
+          ]
+        },
+        {
+          "index": 3,
+          "id": "world-model-quote",
+          "type": "quote",
+          "title": "Förståelse",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 4,
+          "id": "berg-consciousness-quote",
+          "type": "quote",
+          "title": "Medvetande?",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 5,
+          "id": "intro-vep",
+          "type": "title",
+          "title": "VEP-konceptet",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "title"
+          ]
+        },
+        {
+          "index": 6,
+          "id": "tre-roller",
+          "type": "roles-diagram",
+          "title": "Hela metoden bygger på två roller",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "roles-diagram"
+          ]
+        },
+        {
+          "index": 7,
+          "id": "instruktion-vep",
+          "type": "step-slide",
+          "title": "Dirigentens approach",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "step-slide",
+            "interactive"
+          ]
+        },
+        {
+          "index": 8,
+          "id": "case-mail-intro",
+          "type": "title",
+          "title": "Case 1",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "title"
+          ]
+        },
+        {
+          "index": 9,
+          "id": "case-mail-names",
+          "type": "name-input",
+          "title": "Hjälp mig sätta scenen",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "name-input"
+          ]
+        },
+        {
+          "index": 10,
+          "id": "mail-foralder",
+          "type": "email-mockup",
+          "title": "Mail: Föräldern",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "email-mockup",
+            "biology"
+          ]
+        },
+        {
+          "index": 11,
+          "id": "mail-svar",
+          "type": "email-mockup",
+          "title": "Mail: Lärarens svar",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "email-mockup",
+            "biology"
+          ]
+        },
+        {
+          "index": 12,
+          "id": "skin-in-the-game-intro",
+          "type": "step-slide",
+          "title": "Skin in the game",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "step-slide",
+            "interactive"
+          ]
+        },
+        {
+          "index": 13,
+          "id": "lektion-utkast",
+          "type": "document-mockup",
+          "title": "Den ofärdiga uppgiften",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "document-mockup"
+          ]
+        },
+        {
+          "index": 14,
+          "id": "deltagarnas-tur",
+          "type": "interactive-timer",
+          "title": "Nu är det din tur",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "interactive-timer"
+          ]
+        },
+        {
+          "index": 15,
+          "id": "tank-om-progression",
+          "type": "rewrite-progression",
+          "title": "Tänk om...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "rewrite-progression"
+          ]
+        },
+        {
+          "index": 16,
+          "id": "stilregler-demo",
+          "type": "conversation",
+          "title": "Dual Analysis: Att koda din röst",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "conversation"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "directory": "Deployments/familjen-hbg-ai",
+      "type": "json-manifest",
+      "project": "AI i förskolan",
+      "event": "Familjen Hbg Förskolenätverk",
+      "date": "2026-04-24",
+      "slideCount": 25,
+      "slides": [
+        {
+          "index": 0,
+          "id": "title",
+          "type": "title",
+          "title": "AI i förskolan",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "title"
+          ]
+        },
+        {
+          "index": 1,
+          "id": "presenter",
+          "type": "presenter",
+          "title": "Kommunlektor",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "presenter",
+            "biology"
+          ]
+        },
+        {
+          "index": 2,
+          "id": "dialog-first",
+          "type": "quote",
+          "title": "Dialog före monolog. Avbryt mig. Ställ frågor. Vi lär av var...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 3,
+          "id": "olampligt-ai",
+          "type": "rewrite-progression",
+          "title": null,
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "rewrite-progression"
+          ]
+        },
+        {
+          "index": 4,
+          "id": "ai-intro",
+          "type": "step-slide",
+          "title": "AI är inget nytt!",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "step-slide",
+            "interactive"
+          ]
+        },
+        {
+          "index": 5,
+          "id": "tank-om-progression",
+          "type": "rewrite-progression",
+          "title": null,
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "rewrite-progression"
+          ]
+        },
+        {
+          "index": 6,
+          "id": "tredje-stolen",
+          "type": "quote",
+          "title": "Den osynliga kompisen",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 7,
+          "id": "rand-statistik",
+          "type": "stat",
+          "title": "60% av föräldrar till barn mellan 2 och 8 år uppger att barnen interagerar med röstassistenter (Siri, Alexa) hemma.",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "stat"
+          ]
+        },
+        {
+          "index": 8,
+          "id": "falsk-empati",
+          "type": "quote",
+          "title": "Jag förstår att du känner dig ledsen. AI simulerar empati me...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 9,
+          "id": "ai-commission",
+          "type": "quote",
+          "title": "Om skolan [eller förskolan] inte introducerar eleverna till ...",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 10,
+          "id": "token-demo",
+          "type": "token-demo",
+          "title": "Är generativ AI bara en avancerad autocomplete... en gissningsmaskin?",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "token-demo",
+            "interactive"
+          ]
+        },
+        {
+          "index": 11,
+          "id": "human-guessing",
+          "type": "quote",
+          "title": "Våra hjärnor förutspår också konstant vad som ska hända härn...",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 12,
+          "id": "visual-critique",
+          "type": "case-grid",
+          "title": "Pedagogik: Visuell Källkritik",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "case-grid"
+          ]
+        },
+        {
+          "index": 13,
+          "id": "incidents",
+          "type": "quote",
+          "title": "\"What if I told you I could come home right now?\"\n\"Please do...",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 14,
+          "id": "gdpr-kort",
+          "type": "quote",
+          "title": "Säkerhet i praktiken",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote",
+            "regulatory"
+          ]
+        },
+        {
+          "index": 15,
+          "id": "human-in-the-loop",
+          "type": "quote",
+          "title": "Human in the Loop",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 16,
+          "id": "policy-reflektion",
+          "type": "step-slide",
+          "title": null,
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "step-slide",
+            "interactive",
+            "regulatory"
+          ]
+        },
+        {
+          "index": 17,
+          "id": "dirigent-intro",
+          "type": "quote",
+          "title": "Från publik till dirigent",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "quote"
+          ]
+        },
+        {
+          "index": 18,
+          "id": "tre-roller",
+          "type": "step-slide",
+          "title": null,
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "step-slide",
+            "interactive"
+          ]
+        },
+        {
+          "index": 19,
+          "id": "chefens-nytta",
+          "type": "grid",
+          "title": "Dirigenten i chefsvardagen",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid"
+          ]
+        },
+        {
+          "index": 20,
+          "id": "chef-cases",
+          "type": "modal-cards",
+          "title": "Verkliga Case: AI i Chefsvardagen",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "modal-cards"
+          ]
+        },
+        {
+          "index": 21,
+          "id": "misinfo-disinfo",
+          "type": "grid",
+          "title": "Sanning & Källkritik",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "grid"
+          ]
+        },
+        {
+          "index": 22,
+          "id": "voice-cloning-risk",
+          "type": "case-grid",
+          "title": "Säkerhet: Röstkloning & Dokumentation",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "case-grid"
+          ]
+        },
+        {
+          "index": 23,
+          "id": "youtube-deepfake",
+          "type": "video-link",
+          "title": "Syntetisk sanning",
+          "hasBackground": false,
+          "hasSources": false,
+          "tags": [
+            "video-link"
+          ]
+        },
+        {
+          "index": 24,
+          "id": "hinton-varning",
+          "type": "presenter",
+          "title": "Nobelpristagare AI 2024",
+          "hasBackground": false,
+          "hasSources": true,
+          "tags": [
+            "presenter"
+          ]
+        }
+      ]
+    }
+  ],
+  "standaloneSlides": [
+    {
+      "source": "Deployments/CRE_APT_jan2026/index.html",
+      "directory": "Deployments/CRE_APT_jan2026",
+      "type": "standalone-html",
+      "project": "CRE_APT_jan2026",
+      "title": "AI & Elevhälsa – APT Centrala Resursenheten",
+      "slideCount": 25,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/resurser.html",
+      "directory": "Deployments/CRE_APT_jan2026",
+      "type": "standalone-html",
+      "project": "CRE_APT_jan2026",
+      "title": "AI & Elevhälsa – Resurser",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/slides/ai-kommissionen.html",
+      "directory": "Deployments/CRE_APT_jan2026/slides",
+      "type": "standalone-html",
+      "project": "slides",
+      "title": "AI-kommissionen – AI & Elevhälsa",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/slides/dokumenterade-fall.html",
+      "directory": "Deployments/CRE_APT_jan2026/slides",
+      "type": "standalone-html",
+      "project": "slides",
+      "title": "Dokumenterade konsekvenser – AI & Elevhälsa",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/slides/mojligheter.html",
+      "directory": "Deployments/CRE_APT_jan2026/slides",
+      "type": "standalone-html",
+      "project": "slides",
+      "title": "Hur kan AI hjälpa er? – AI & Elevhälsa",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/slides/oecd-56.html",
+      "directory": "Deployments/CRE_APT_jan2026/slides",
+      "type": "standalone-html",
+      "project": "slides",
+      "title": "56% saknar tillgång – AI & Elevhälsa",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/slides/risker-quad.html",
+      "directory": "Deployments/CRE_APT_jan2026/slides",
+      "type": "standalone-html",
+      "project": "slides",
+      "title": "4 Riskområden – AI & Elevhälsa",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/slides/token-prediction.html",
+      "directory": "Deployments/CRE_APT_jan2026/slides",
+      "type": "standalone-html",
+      "project": "slides",
+      "title": "Så funkar GPT – AI & Elevhälsa",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/slides/trafikljus.html",
+      "directory": "Deployments/CRE_APT_jan2026/slides",
+      "type": "standalone-html",
+      "project": "slides",
+      "title": "Trafikljusmodellen – AI & Elevhälsa",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/CRE_APT_jan2026/workshop-resurser.html",
+      "directory": "Deployments/CRE_APT_jan2026",
+      "type": "standalone-html",
+      "project": "CRE_APT_jan2026",
+      "title": "AI & Elevhälsa – Resurser",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/SkrivBord/index.html",
+      "directory": "Deployments/SkrivBord",
+      "type": "standalone-html",
+      "project": "SkrivBord",
+      "title": "Skrivr — Markdown Editor",
+      "slideCount": 1,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "Deployments/ai_radar_presentation/index.html",
+      "directory": "Deployments/ai_radar_presentation",
+      "type": "standalone-html",
+      "project": "ai_radar_presentation",
+      "title": "AI & RISKER: TIDSLINJE-VISUALISERING",
+      "slideCount": 1,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "Deployments/begreppskollen/ekologi-alla.html",
+      "directory": "Deployments/begreppskollen",
+      "type": "standalone-html",
+      "project": "begreppskollen",
+      "title": "GAIA | Ekologi Begreppsträning",
+      "slideCount": 1,
+      "patterns": [
+        "drill-deck"
+      ]
+    },
+    {
+      "source": "Deployments/begreppskollen/ekologi-v16.html",
+      "directory": "Deployments/begreppskollen",
+      "type": "standalone-html",
+      "project": "begreppskollen",
+      "title": "Begreppskollen — Ekologi v.16",
+      "slideCount": 1,
+      "patterns": [
+        "drill-deck"
+      ]
+    },
+    {
+      "source": "Deployments/begreppskollen/ekologi-v17.html",
+      "directory": "Deployments/begreppskollen",
+      "type": "standalone-html",
+      "project": "begreppskollen",
+      "title": "Begreppskollen — Ekologi v.17",
+      "slideCount": 1,
+      "patterns": [
+        "drill-deck"
+      ]
+    },
+    {
+      "source": "Deployments/begreppskollen/index.html",
+      "directory": "Deployments/begreppskollen",
+      "type": "standalone-html",
+      "project": "begreppskollen",
+      "title": "Begreppskollen — NO-glosor",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/bjk-faltstudie/index.html",
+      "directory": "Deployments/bjk-faltstudie",
+      "type": "standalone-html",
+      "project": "bjk-faltstudie",
+      "title": "Fältstudie – Att ha med sig material | Björnekullaskolan",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/bjornekulla-ai/modules/ai_radar_presentation/index.html",
+      "directory": "Deployments/bjornekulla-ai/modules/ai_radar_presentation",
+      "type": "standalone-html",
+      "project": "ai_radar_presentation",
+      "title": "AI & RISKER: TIDSLINJE-VISUALISERING",
+      "slideCount": 1,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "Deployments/bjornekulla-ai/modules/ai_timeline/index.html",
+      "directory": "Deployments/bjornekulla-ai/modules/ai_timeline",
+      "type": "standalone-html",
+      "project": "ai_timeline",
+      "title": "AI Tidslinje",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/bjornekulla-ai/modules/llm_probability/index.html",
+      "directory": "Deployments/bjornekulla-ai/modules/llm_probability",
+      "type": "standalone-html",
+      "project": "llm_probability",
+      "title": "LLM Sannolikhet — Interaktiv Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/familjen-hbg-ai/modules/ai_radar_presentation/index.html",
+      "directory": "Deployments/familjen-hbg-ai/modules/ai_radar_presentation",
+      "type": "standalone-html",
+      "project": "ai_radar_presentation",
+      "title": "AI & RISKER: TIDSLINJE-VISUALISERING",
+      "slideCount": 1,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "Deployments/familjen-hbg-ai/modules/ai_timeline/index.html",
+      "directory": "Deployments/familjen-hbg-ai/modules/ai_timeline",
+      "type": "standalone-html",
+      "project": "ai_timeline",
+      "title": "AI Tidslinje",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/familjen-hbg-ai/modules/llm_probability/index.html",
+      "directory": "Deployments/familjen-hbg-ai/modules/llm_probability",
+      "type": "standalone-html",
+      "project": "llm_probability",
+      "title": "LLM Sannolikhet — Interaktiv Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/gaia-tools/brusvakten/index.html",
+      "directory": "Deployments/gaia-tools/brusvakten",
+      "type": "standalone-html",
+      "project": "brusvakten",
+      "title": "Brusvakten - Akustisk Spegling",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/gaia-tools/index.html",
+      "directory": "Deployments/gaia-tools",
+      "type": "standalone-html",
+      "project": "gaia-tools",
+      "title": "gAIa Verktyg",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/gaia-tools/rakor/admin.html",
+      "directory": "Deployments/gaia-tools/rakor",
+      "type": "standalone-html",
+      "project": "rakor",
+      "title": "Råkinventering 2026 (Admin)",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/gaia-tools/rakor/index.html",
+      "directory": "Deployments/gaia-tools/rakor",
+      "type": "standalone-html",
+      "project": "rakor",
+      "title": "Råkinventering Åstorp 2026",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/hkk-dashboard/encrypted/index.html",
+      "directory": "Deployments/hkk-dashboard/encrypted",
+      "type": "standalone-html",
+      "project": "encrypted",
+      "title": "HKK Dashboard — Logga in",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/hkk-dashboard/index.html",
+      "directory": "Deployments/hkk-dashboard",
+      "type": "standalone-html",
+      "project": "hkk-dashboard",
+      "title": "HKK Uppgiftsöversikt — Teachiq/KM",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/krysslista/faltlistan.html",
+      "directory": "Deployments/krysslista",
+      "type": "standalone-html",
+      "project": "krysslista",
+      "title": "Fältlistan — Digital Krysslista",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/krysslista/index.html",
+      "directory": "Deployments/krysslista",
+      "type": "standalone-html",
+      "project": "krysslista",
+      "title": "Checklistan för fåglar — GAIA",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/pdf-verktyg/index.html",
+      "directory": "Deployments/pdf-verktyg",
+      "type": "standalone-html",
+      "project": "pdf-verktyg",
+      "title": "PDF Verktyg — gAIa",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "Deployments/tomtkryss_kvidinge/index.html",
+      "directory": "Deployments/tomtkryss_kvidinge",
+      "type": "standalone-html",
+      "project": "tomtkryss_kvidinge",
+      "title": "THE RADAR ARCHIVE - TOMTKRYSS",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "NO 7-9 - En röd tråd/Solsystemet och universum/03_VERKTYG/SlideCraft/The_Martian_Recap/the_martian_recap_pass2.html",
+      "directory": "NO 7-9 - En röd tråd/Solsystemet och universum/03_VERKTYG/SlideCraft/The_Martian_Recap",
+      "type": "standalone-html",
+      "project": "The_Martian_Recap",
+      "title": "The Martian — Pass 2 Sammanfattning",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "NO 7-9 - En röd tråd/Solsystemet och universum/03_VERKTYG/SlideCraft/The_Martian_Recap/the_martian_recap_slide.html",
+      "directory": "NO 7-9 - En röd tråd/Solsystemet och universum/03_VERKTYG/SlideCraft/The_Martian_Recap",
+      "type": "standalone-html",
+      "project": "The_Martian_Recap",
+      "title": "The Martian — Sammanfattning",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "NO 7-9 - En röd tråd/Solsystemet och universum/03_VERKTYG/SlideCraft/The_Martian_Recap/the_martian_recap_slide_v2.html",
+      "directory": "NO 7-9 - En röd tråd/Solsystemet och universum/03_VERKTYG/SlideCraft/The_Martian_Recap",
+      "type": "standalone-html",
+      "project": "The_Martian_Recap",
+      "title": "The Martian — Sammanfattning (v2)",
+      "slideCount": 2,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/countdown_timer/demo.html",
+      "directory": "SlideCraft/_types/countdown_timer",
+      "type": "standalone-html",
+      "project": "countdown_timer",
+      "title": "Countdown Timer | SlideCraft Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/embed_iframe/demo.html",
+      "directory": "SlideCraft/_types/embed_iframe",
+      "type": "standalone-html",
+      "project": "embed_iframe",
+      "title": "Embed Iframe | SlideCraft Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/hero_recap/example_the_martian/the_martian_recap_slide.html",
+      "directory": "SlideCraft/_types/hero_recap/example_the_martian",
+      "type": "standalone-html",
+      "project": "example_the_martian",
+      "title": "The Martian — Sammanfattning",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/kinetic_typography/demo.html",
+      "directory": "SlideCraft/_types/kinetic_typography",
+      "type": "standalone-html",
+      "project": "kinetic_typography",
+      "title": "Kinetic Typography | SlideCraft Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/knowledge_check/demo.html",
+      "directory": "SlideCraft/_types/knowledge_check",
+      "type": "standalone-html",
+      "project": "knowledge_check",
+      "title": "Knowledge Check | SlideCraft Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/random_picker/demo.html",
+      "directory": "SlideCraft/_types/random_picker",
+      "type": "standalone-html",
+      "project": "random_picker",
+      "title": "Random Picker | SlideCraft Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/source_references/demo.html",
+      "directory": "SlideCraft/_types/source_references",
+      "type": "standalone-html",
+      "project": "source_references",
+      "title": "SlideCraft: Source References Demo",
+      "slideCount": 4,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/split_reveal/demo.html",
+      "directory": "SlideCraft/_types/split_reveal",
+      "type": "standalone-html",
+      "project": "split_reveal",
+      "title": "Split Reveal | SlideCraft Demo",
+      "slideCount": 2,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/timeline/demo.html",
+      "directory": "SlideCraft/_types/timeline",
+      "type": "standalone-html",
+      "project": "timeline",
+      "title": "Timeline | SlideCraft Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/_types/typewriter_quote/demo.html",
+      "directory": "SlideCraft/_types/typewriter_quote",
+      "type": "standalone-html",
+      "project": "typewriter_quote",
+      "title": "Typewriter Slide Demo",
+      "slideCount": 1,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "SlideCraft/_types/zoom_embed/demo.html",
+      "directory": "SlideCraft/_types/zoom_embed",
+      "type": "standalone-html",
+      "project": "zoom_embed",
+      "title": "Zoom Embed | SlideCraft Demo",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-01-APT-AI-risker/APT-001-old.html",
+      "directory": "SlideCraft/presentations/2026-01-APT-AI-risker",
+      "type": "standalone-html",
+      "project": "2026-01-APT-AI-risker",
+      "title": "AI-relationer och barn | APT-001",
+      "slideCount": 3,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-01-APT-AI-risker/APT-001.html",
+      "directory": "SlideCraft/presentations/2026-01-APT-AI-risker",
+      "type": "standalone-html",
+      "project": "2026-01-APT-AI-risker",
+      "title": "AI-relationer och barn | APT-001",
+      "slideCount": 2,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-01-APT-AI-risker/APT-CRE-2026.html",
+      "directory": "SlideCraft/presentations/2026-01-APT-AI-risker",
+      "type": "standalone-html",
+      "project": "2026-01-APT-AI-risker",
+      "title": "AI & Elevhälsa – APT Centrala Resursenheten",
+      "slideCount": 25,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "SlideCraft/presentations/2026-01-APT-AI-risker/APT-WORLD-MAP-INCIDENTS.html",
+      "directory": "SlideCraft/presentations/2026-01-APT-AI-risker",
+      "type": "standalone-html",
+      "project": "2026-01-APT-AI-risker",
+      "title": "AI-incidenter – Världskarta",
+      "slideCount": 4,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-01-APT-AI-risker/APT-fullpresentation.html",
+      "directory": "SlideCraft/presentations/2026-01-APT-AI-risker",
+      "type": "standalone-html",
+      "project": "2026-01-APT-AI-risker",
+      "title": "AI och Elevhälsa – APT Presentation",
+      "slideCount": 16,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-01-APT-AI-risker/typewriter-demo.html",
+      "directory": "SlideCraft/presentations/2026-01-APT-AI-risker",
+      "type": "standalone-html",
+      "project": "2026-01-APT-AI-risker",
+      "title": "Typewriter Slide Demo",
+      "slideCount": 1,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "SlideCraft/presentations/2026-01-APT-AI-risker/workshop-resurser.html",
+      "directory": "SlideCraft/presentations/2026-01-APT-AI-risker",
+      "type": "standalone-html",
+      "project": "2026-01-APT-AI-risker",
+      "title": "AI & Elevhälsa – Resurser",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-02-NP-biologi-ekologi/NP-biologi-index.html",
+      "directory": "SlideCraft/presentations/2026-02-NP-biologi-ekologi",
+      "type": "standalone-html",
+      "project": "2026-02-NP-biologi-ekologi",
+      "title": "NP-träning: Biologins grunder",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-02-NP-biologi-ekologi/drill-deck.html",
+      "directory": "SlideCraft/presentations/2026-02-NP-biologi-ekologi",
+      "type": "standalone-html",
+      "project": "2026-02-NP-biologi-ekologi",
+      "title": "NP Drill Deck — 26 Uppgifter",
+      "slideCount": 1,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-02-NP-biologi-ekologi/inlarning-typewriter.html",
+      "directory": "SlideCraft/presentations/2026-02-NP-biologi-ekologi",
+      "type": "standalone-html",
+      "project": "2026-02-NP-biologi-ekologi",
+      "title": "Hur lärande fungerar",
+      "slideCount": 28,
+      "patterns": [
+        "typewriter"
+      ]
+    },
+    {
+      "source": "SlideCraft/presentations/2026-02-NP-biologi-ekologi/presentation.html",
+      "directory": "SlideCraft/presentations/2026-02-NP-biologi-ekologi",
+      "type": "standalone-html",
+      "project": "2026-02-NP-biologi-ekologi",
+      "title": "NP-träning: Biologins grunder",
+      "slideCount": 30,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/2026-02-biologins-grunder/bakterier-virus-intro.html",
+      "directory": "SlideCraft/presentations/2026-02-biologins-grunder",
+      "type": "standalone-html",
+      "project": "2026-02-biologins-grunder",
+      "title": "Bakterier & Virus – Introduktion",
+      "slideCount": 7,
+      "patterns": []
+    },
+    {
+      "source": "SlideCraft/presentations/the-martian-summary/the_martian_recap_slide.html",
+      "directory": "SlideCraft/presentations/the-martian-summary",
+      "type": "standalone-html",
+      "project": "the-martian-summary",
+      "title": "The Martian — Sammanfattning",
+      "slideCount": 1,
+      "patterns": []
+    }
+  ],
+  "slideIndex": [
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 0,
+      "id": "title",
+      "type": "title",
+      "title": "AI & Elevhälsa",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "title",
+        "elevhälsa"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 1,
+      "id": "presenter",
+      "type": "presenter",
+      "title": "Kommunlektor",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "presenter",
+        "biology"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 2,
+      "id": "dialog-first",
+      "type": "quote",
+      "title": "Dialog före monolog. Avbryt mig. Ställ frågor. Vi lär av var...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 3,
+      "id": "ai-intro",
+      "type": "step-slide",
+      "title": "AI är inget nytt!",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "step-slide",
+        "interactive"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 4,
+      "id": "tredje-stolen",
+      "type": "quote",
+      "title": "I samtalsrummet finns nu ofta en osynlig tredje stol – ockup...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 5,
+      "id": "rand-statistik",
+      "type": "stat",
+      "title": "1 av 5 unga vuxna (18-21 år) använder AI-chatbotar för råd om psykisk hälsa. Bland tonåringar (14-17 år) är siffran 13%.",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "stat"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 6,
+      "id": "gps-metafor",
+      "type": "grid",
+      "title": "GPS-metaforen: AI som vägvisare",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 7,
+      "id": "falsk-empati",
+      "type": "quote",
+      "title": "'Jag förstår att du känner dig ledsen.' AI simulerar empati ...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 8,
+      "id": "gemini-vs-notebooklm",
+      "type": "grid",
+      "title": "Två verktyg – två syften",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 9,
+      "id": "oecd-56",
+      "type": "stat",
+      "title": "56% av svenska 15-åringar har inte använt AI i skolan",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "stat",
+        "statistics"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 10,
+      "id": "ai-commission",
+      "type": "quote",
+      "title": "Om skolan inte introducerar eleverna till AI finns risken at...",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 11,
+      "id": "token-demo",
+      "type": "token-demo",
+      "title": "Så funkar GPT",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "token-demo",
+        "interactive"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 12,
+      "id": "possibilities",
+      "type": "modal-cards",
+      "title": "Hur kan AI hjälpa elevhälsan?",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "modal-cards",
+        "elevhälsa"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 13,
+      "id": "risks-quad",
+      "type": "modal-cards",
+      "title": "4 riskområden",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "modal-cards"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 14,
+      "id": "incidents",
+      "type": "incidents",
+      "title": "Dokumenterade konsekvenser",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "incidents",
+        "ai-safety"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 15,
+      "id": "samtalsnycklar",
+      "type": "grid",
+      "title": "Samtalsnycklar: Fråga om AI-användning",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid",
+        "statistics"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 16,
+      "id": "aldrig-i-prompten",
+      "type": "grid",
+      "title": "Aldrig i prompten (GDPR)",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid",
+        "regulatory"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 17,
+      "id": "human-in-the-loop",
+      "type": "quote",
+      "title": "Human in the loop: Ingen AI-text får skickas till elever uta...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 18,
+      "id": "traffic-light",
+      "type": "traffic-light",
+      "title": "Vad kan elevhälsan göra med AI?",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "traffic-light",
+        "elevhälsa"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 19,
+      "id": "vep-prompt",
+      "type": "prompt-demo",
+      "title": "Prompt: Virtuell expertpanel",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "prompt-demo",
+        "ai"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 20,
+      "id": "grok-incident",
+      "type": "quote",
+      "title": "Elon Musks AI Grok användes för att skapa avklädda deepfake-...",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 21,
+      "id": "misinfo-disinfo",
+      "type": "grid",
+      "title": "Sanning i gungning",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid",
+        "elevhälsa"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 22,
+      "id": "sewell-tragedy",
+      "type": "quote",
+      "title": "Sewell, 14 år, isolerade sig med en AI-chatbot som blev hans...",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 23,
+      "id": "youtube-deepfake",
+      "type": "video-link",
+      "title": "Syntetisk sanning",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "video-link"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 24,
+      "id": "temperatur",
+      "type": "grid",
+      "title": "Temperatur: Slump vs. förutsägbarhet",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 25,
+      "id": "ai-detektion",
+      "type": "quote",
+      "title": "Det finns inga system som säkert kan bedöma om text är AI-ge...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 26,
+      "id": "hinton-varning",
+      "type": "presenter",
+      "title": "Nobelpristagare AI 2024",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "presenter"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 27,
+      "id": "eu-ai-act",
+      "type": "step-slide",
+      "title": "EU AI Act: Förbjudna AI-system",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "step-slide",
+        "interactive",
+        "regulatory"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 28,
+      "id": "policy-reflektion",
+      "type": "grid",
+      "title": "Har vi...?",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid"
+      ]
+    },
+    {
+      "presentation": "AI & Elevhälsa",
+      "presentationDate": "2026-01-23",
+      "source": "Deployments/CRE_APT_jan2026/slides.json",
+      "index": 29,
+      "id": "tools",
+      "type": "tool-links",
+      "title": "Verktyg för workshopen",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "tool-links"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 0,
+      "id": "title",
+      "type": "title",
+      "title": "Från publik till dirigent",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "title"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 1,
+      "id": "dialog-first",
+      "type": "quote",
+      "title": "Dialog",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 2,
+      "id": "olampligt-ai",
+      "type": "rewrite-progression",
+      "title": "När är det olämpligt?",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "rewrite-progression"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 3,
+      "id": "world-model-quote",
+      "type": "quote",
+      "title": "Förståelse",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 4,
+      "id": "berg-consciousness-quote",
+      "type": "quote",
+      "title": "Medvetande?",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 5,
+      "id": "intro-vep",
+      "type": "title",
+      "title": "VEP-konceptet",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "title"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 6,
+      "id": "tre-roller",
+      "type": "roles-diagram",
+      "title": "Hela metoden bygger på två roller",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "roles-diagram"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 7,
+      "id": "instruktion-vep",
+      "type": "step-slide",
+      "title": "Dirigentens approach",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "step-slide",
+        "interactive"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 8,
+      "id": "case-mail-intro",
+      "type": "title",
+      "title": "Case 1",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "title"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 9,
+      "id": "case-mail-names",
+      "type": "name-input",
+      "title": "Hjälp mig sätta scenen",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "name-input"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 10,
+      "id": "mail-foralder",
+      "type": "email-mockup",
+      "title": "Mail: Föräldern",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "email-mockup",
+        "biology"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 11,
+      "id": "mail-svar",
+      "type": "email-mockup",
+      "title": "Mail: Lärarens svar",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "email-mockup",
+        "biology"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 12,
+      "id": "skin-in-the-game-intro",
+      "type": "step-slide",
+      "title": "Skin in the game",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "step-slide",
+        "interactive"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 13,
+      "id": "lektion-utkast",
+      "type": "document-mockup",
+      "title": "Den ofärdiga uppgiften",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "document-mockup"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 14,
+      "id": "deltagarnas-tur",
+      "type": "interactive-timer",
+      "title": "Nu är det din tur",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "interactive-timer"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 15,
+      "id": "tank-om-progression",
+      "type": "rewrite-progression",
+      "title": "Tänk om...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "rewrite-progression"
+      ]
+    },
+    {
+      "presentation": "AI-Workshop Björnekullaskolan",
+      "presentationDate": "2026-04-27",
+      "source": "Deployments/bjornekulla-ai/slides.json",
+      "index": 16,
+      "id": "stilregler-demo",
+      "type": "conversation",
+      "title": "Dual Analysis: Att koda din röst",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "conversation"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 0,
+      "id": "title",
+      "type": "title",
+      "title": "AI i förskolan",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "title"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 1,
+      "id": "presenter",
+      "type": "presenter",
+      "title": "Kommunlektor",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "presenter",
+        "biology"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 2,
+      "id": "dialog-first",
+      "type": "quote",
+      "title": "Dialog före monolog. Avbryt mig. Ställ frågor. Vi lär av var...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 3,
+      "id": "olampligt-ai",
+      "type": "rewrite-progression",
+      "title": null,
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "rewrite-progression"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 4,
+      "id": "ai-intro",
+      "type": "step-slide",
+      "title": "AI är inget nytt!",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "step-slide",
+        "interactive"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 5,
+      "id": "tank-om-progression",
+      "type": "rewrite-progression",
+      "title": null,
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "rewrite-progression"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 6,
+      "id": "tredje-stolen",
+      "type": "quote",
+      "title": "Den osynliga kompisen",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 7,
+      "id": "rand-statistik",
+      "type": "stat",
+      "title": "60% av föräldrar till barn mellan 2 och 8 år uppger att barnen interagerar med röstassistenter (Siri, Alexa) hemma.",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "stat"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 8,
+      "id": "falsk-empati",
+      "type": "quote",
+      "title": "Jag förstår att du känner dig ledsen. AI simulerar empati me...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 9,
+      "id": "ai-commission",
+      "type": "quote",
+      "title": "Om skolan [eller förskolan] inte introducerar eleverna till ...",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 10,
+      "id": "token-demo",
+      "type": "token-demo",
+      "title": "Är generativ AI bara en avancerad autocomplete... en gissningsmaskin?",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "token-demo",
+        "interactive"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 11,
+      "id": "human-guessing",
+      "type": "quote",
+      "title": "Våra hjärnor förutspår också konstant vad som ska hända härn...",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 12,
+      "id": "visual-critique",
+      "type": "case-grid",
+      "title": "Pedagogik: Visuell Källkritik",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "case-grid"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 13,
+      "id": "incidents",
+      "type": "quote",
+      "title": "\"What if I told you I could come home right now?\"\n\"Please do...",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 14,
+      "id": "gdpr-kort",
+      "type": "quote",
+      "title": "Säkerhet i praktiken",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote",
+        "regulatory"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 15,
+      "id": "human-in-the-loop",
+      "type": "quote",
+      "title": "Human in the Loop",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 16,
+      "id": "policy-reflektion",
+      "type": "step-slide",
+      "title": null,
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "step-slide",
+        "interactive",
+        "regulatory"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 17,
+      "id": "dirigent-intro",
+      "type": "quote",
+      "title": "Från publik till dirigent",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "quote"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 18,
+      "id": "tre-roller",
+      "type": "step-slide",
+      "title": null,
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "step-slide",
+        "interactive"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 19,
+      "id": "chefens-nytta",
+      "type": "grid",
+      "title": "Dirigenten i chefsvardagen",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 20,
+      "id": "chef-cases",
+      "type": "modal-cards",
+      "title": "Verkliga Case: AI i Chefsvardagen",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "modal-cards"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 21,
+      "id": "misinfo-disinfo",
+      "type": "grid",
+      "title": "Sanning & Källkritik",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "grid"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 22,
+      "id": "voice-cloning-risk",
+      "type": "case-grid",
+      "title": "Säkerhet: Röstkloning & Dokumentation",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "case-grid"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 23,
+      "id": "youtube-deepfake",
+      "type": "video-link",
+      "title": "Syntetisk sanning",
+      "hasBackground": false,
+      "hasSources": false,
+      "tags": [
+        "video-link"
+      ]
+    },
+    {
+      "presentation": "AI i förskolan",
+      "presentationDate": "2026-04-24",
+      "source": "Deployments/familjen-hbg-ai/slides.json",
+      "index": 24,
+      "id": "hinton-varning",
+      "type": "presenter",
+      "title": "Nobelpristagare AI 2024",
+      "hasBackground": false,
+      "hasSources": true,
+      "tags": [
+        "presenter"
+      ]
+    }
+  ]
+}

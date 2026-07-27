@@ -1,0 +1,1090 @@
+{
+  "generated": "2026-07-27T14:00:23Z",
+  "source": "component-forge.js",
+  "types": [
+    {
+      "type": "ask",
+      "renderer": "renderAsk",
+      "description": "Fritext- och skalafrågor med kontrollerad presentatörsutrullning.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "question",
+          "type": "string",
+          "description": "frågetext @param {string} [s.mode] - \"word\" | \"sentence\" | \"scale\" @param {string} [s.display] - \"cloud\" | \"wall\" | \"bars\" @param {number} [s.maxLength] - max antal tecken @param {boolean} [s.anonymous] - alltid anonymiserat aggregat"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "renderer": "renderVideo",
+      "description": "Inbäddad videofil med valfri undertext.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "filsökväg eller URL @param {string} [s.poster] - stillbild före uppspelning @param {string} [s.captions] - sökväg till .vtt (undertextspår) @param {boolean} [s.loop] @param {boolean} [s.muted] @param {string} [s.caption] - bildtext under videon"
+        }
+      ]
+    },
+    {
+      "type": "embed",
+      "renderer": "renderEmbed",
+      "description": "Sandboxad inbäddning av simulation, verktyg eller extern sida.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "URL @param {string} s.title - tillgänglig titel, obligatorisk @param {string} [s.sandbox] - default \"allow-scripts allow-same-origin\" @param {string} [s.aspectRatio] - default \"16/9\" @param {boolean} [s.sync] - true om målet implementerar sfState-kontraktet"
+        }
+      ]
+    },
+    {
+      "type": "composite",
+      "renderer": "renderComposite",
+      "description": "Composite — combines multiple forge types in a flexible grid layout.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "layout",
+          "type": "string",
+          "description": "\"rows\" | \"columns\" | \"grid-2\" | \"grid-3\" @param {Array} s.blocks - [{span: 1, block: {type: \"giant-text\", text: \"...\"}}] @param {string} [s.gap] - Gap between blocks (default \"1rem\")"
+        }
+      ]
+    },
+    {
+      "type": "semantic-nebula",
+      "renderer": "renderSemanticNebula",
+      "description": "Renderer for semantic-nebula",
+      "category": "visual",
+      "props": []
+    },
+    {
+      "type": "word-cascade",
+      "renderer": "renderWordCascade",
+      "description": "Words that drop into place",
+      "category": "text",
+      "props": [
+        {
+          "name": "words",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "description": ""
+        },
+        {
+          "name": "finalPause",
+          "type": "boolean",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "box-reveal",
+      "renderer": "renderBoxReveal",
+      "description": "Boxes that bounce in with glassmorphism borders",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "boxes",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "iconSrc",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "bullet-build",
+      "renderer": "renderBulletBuild",
+      "description": "Progressive bullet point reveals",
+      "category": "text",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "auto",
+          "type": "boolean",
+          "description": ""
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "line-chart",
+      "renderer": "renderLineChart",
+      "description": "SVG lines drawn with stroke-dashoffset animation",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "xLabel",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "yLabel",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "series",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "points",
+          "type": "Array",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "renderer": "renderComparison",
+      "description": "Side-by-side columns sliding in from opposite edges",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "left",
+          "type": "Object",
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "Array",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "timeline-vertical",
+      "renderer": "renderTimelineVertical",
+      "description": "Line drawn downward with nodes popping in",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "nodes",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "sub",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "progress-ring",
+      "renderer": "renderProgressRing",
+      "description": "Circular SVG gauge with countUp",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": ""
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": ""
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "number-wall",
+      "renderer": "renderNumberWall",
+      "description": "Grid of animated counters",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "numbers",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "bar-race",
+      "renderer": "renderBarRace",
+      "description": "Horizontal animated bars sorted by value",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": ""
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "giant-text",
+      "renderer": "renderGiantText",
+      "description": "One big statement. **bold** = accent.",
+      "category": "text",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "align",
+          "type": "string",
+          "description": "left|center"
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "description": "display|serif"
+        },
+        {
+          "name": "entrance",
+          "type": "string",
+          "description": "fade|word-by-word|instant"
+        },
+        {
+          "name": "decoration",
+          "type": "string",
+          "description": "string"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "renderer": "renderCallout",
+      "description": "Prominent box with variant color.",
+      "category": "layout",
+      "props": [
+        {
+          "name": "variant",
+          "type": "string",
+          "description": "insight|info|warning|success|danger|quote"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "pulsate",
+          "type": "string",
+          "description": "bool"
+        }
+      ]
+    },
+    {
+      "type": "section-divider",
+      "renderer": "renderSectionDivider",
+      "description": "Section break with number + title.",
+      "category": "layout",
+      "props": [
+        {
+          "name": "number",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "duration",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "description": "centered|hero|left"
+        },
+        {
+          "name": "progress",
+          "type": "Object",
+          "description": "{ current, total }"
+        }
+      ]
+    },
+    {
+      "type": "hero-image",
+      "renderer": "renderHeroImage",
+      "description": "Full-bleed image with text overlay.",
+      "category": "visual",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "gradient",
+          "type": "string",
+          "description": "bottom|top|left|radial|none"
+        },
+        {
+          "name": "textPosition",
+          "type": "string",
+          "description": "bl|bc|br|tl|tc|tr|cl|cc|cr"
+        },
+        {
+          "name": "overlay",
+          "type": "string",
+          "description": "0-1"
+        },
+        {
+          "name": "kenBurns",
+          "type": "string",
+          "description": "bool"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "renderer": "renderOutro",
+      "description": "Closing slide with title, contacts, QR code(s), CTA.",
+      "category": "layout",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "contacts",
+          "type": "string",
+          "description": "strings"
+        },
+        {
+          "name": "qrUrl",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "qrCaption",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "secondaryQrUrl",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "secondaryQrCaption",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "cta",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "nextSteps",
+          "type": "Array",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "rewrite-progression",
+      "renderer": "renderRewriteProgression",
+      "description": "Typewriter replacing text in specific slots",
+      "category": "text",
+      "props": [
+        {
+          "name": "template",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "array"
+        },
+        {
+          "name": "steps",
+          "type": "string",
+          "description": "array of objects mapping slot keys to text"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "renderer": "renderQuote",
+      "description": "Typewriter quote style",
+      "category": "text",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "author",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "string",
+          "description": "typewriter"
+        },
+        {
+          "name": "slowSpeed",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "ai-conversation",
+      "renderer": "renderAiConversation",
+      "description": "Simulated AI chat with typing indicator.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "messages",
+          "type": "string",
+          "description": "{ role: user|ai, label?, text }"
+        },
+        {
+          "name": "userLabel",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "aiLabel",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "highlightPattern",
+          "type": "string",
+          "description": "regex string"
+        }
+      ]
+    },
+    {
+      "type": "before-after",
+      "renderer": "renderBeforeAfter",
+      "description": "Prompt typed → result revealed.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "promptText",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "resultType",
+          "type": "string",
+          "description": "image|text|code"
+        },
+        {
+          "name": "resultContent",
+          "type": "string",
+          "description": "text or image URL"
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "comparison",
+          "type": "string",
+          "description": "bool"
+        }
+      ]
+    },
+    {
+      "type": "prompt-reveal",
+      "renderer": "renderPromptReveal",
+      "description": "Code/prompt in a terminal-like window.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "code",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "description": "typewriter|instant|input"
+        }
+      ]
+    },
+    {
+      "type": "pitfall",
+      "renderer": "renderPitfall",
+      "description": "AI failure visualization.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "badge",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "severity",
+          "type": "string",
+          "description": "warning|danger|critical"
+        },
+        {
+          "name": "question",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "answer",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "correction",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "stat-compare",
+      "renderer": "renderStatCompare",
+      "description": "Two numbers with animated arrow.",
+      "category": "data",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "from",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "fromLabel",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "fromSuffix",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "to",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "toLabel",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "toSuffix",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "voice-collage",
+      "renderer": "renderVoiceCollage",
+      "description": "Grid of short quotes.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "voices",
+          "type": "string",
+          "description": "{ text, author }"
+        },
+        {
+          "name": "highlightIndex",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "portrait-quote",
+      "renderer": "renderPortraitQuote",
+      "description": "Quote with portrait image.",
+      "category": "visual",
+      "props": [
+        {
+          "name": "image",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "attribution",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "context",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "imagePosition",
+          "type": "string",
+          "description": "left|right"
+        }
+      ]
+    },
+    {
+      "type": "reflection",
+      "renderer": "renderReflection",
+      "description": "Sequential questions for audience.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "duration",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "questions",
+          "type": "Array",
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "description": "pair|group|individual"
+        }
+      ]
+    },
+    {
+      "type": "collage",
+      "renderer": "renderCollage",
+      "description": "Image grid.",
+      "category": "visual",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "images",
+          "type": "string",
+          "description": "URLs"
+        },
+        {
+          "name": "layout",
+          "type": "string",
+          "description": "grid-2|grid-3|grid-4"
+        }
+      ]
+    },
+    {
+      "type": "process-chain",
+      "renderer": "renderProcessChain",
+      "description": "Node chain with arrows.",
+      "category": "layout",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "nodes",
+          "type": "string",
+          "description": "{ label, hint, status: done|active|upcoming }"
+        }
+      ]
+    },
+    {
+      "type": "acronym-list",
+      "renderer": "renderAcronymList",
+      "description": "SAMR, Bloom etc.",
+      "category": "text",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "tagline",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "string",
+          "description": "{ letter, word, description }"
+        }
+      ]
+    },
+    {
+      "type": "map-pins",
+      "renderer": "renderMapPins",
+      "description": "Image with positioned pins, click-to-show info panels.",
+      "category": "visual",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "mapImage",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "pins",
+          "type": "string",
+          "description": "{ label, x, y, note }"
+        }
+      ]
+    },
+    {
+      "type": "mindmap",
+      "renderer": "renderMindmap",
+      "description": "Interactive concept map with auto-positioned nodes and curved SVG connections.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "center",
+          "type": "string",
+          "description": "string"
+        },
+        {
+          "name": "nodes",
+          "type": "Array",
+          "description": "({ label, detail, children[]? }) Auto-calculates radial positions. Click to expand detail."
+        }
+      ]
+    },
+    {
+      "type": "map-journey",
+      "renderer": "renderMapJourney",
+      "description": "Stylized map with an animated route connecting pins.",
+      "category": "visual",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "mapImage",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "points",
+          "type": "string",
+          "description": "{ label, x, y }"
+        }
+      ]
+    },
+    {
+      "type": "mindmap-tree",
+      "renderer": "renderMindmapTree",
+      "description": "Multi-level hierarchical mindmap with curved connections.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "root",
+          "type": "string",
+          "description": "string"
+        },
+        {
+          "name": "branches",
+          "type": "string",
+          "description": "{ label, leaves: [string] }"
+        }
+      ]
+    },
+    {
+      "type": "map-progression",
+      "renderer": "renderMapProgression",
+      "description": "Drops pins sequentially via nextStep, shows info box avoiding the pin.",
+      "category": "visual",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "mapImage",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "labs",
+          "type": "string",
+          "description": "{ id, name, location, x, y, desc, meta }"
+        }
+      ]
+    },
+    {
+      "type": "warning-pulse",
+      "renderer": "renderWarningPulse",
+      "description": "An animated exclamation mark warning slide.",
+      "category": "interactive",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "type": "token-spinner",
+      "renderer": "renderTokenSpinner",
+      "description": "Typewriter with slot-machine token generation",
+      "category": "text",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "string"
+        }
+      ]
+    },
+    {
+      "type": "letter-morph",
+      "renderer": "renderLetterMorph",
+      "description": "Scattered letters form words, unused become elliptical frame.",
+      "category": "text",
+      "props": [
+        {
+          "name": "phrases",
+          "type": "Array",
+          "description": "(array of strings) Click to cycle through phrases. Uses setTimeout post-render pattern (no embedded script tags)."
+        }
+      ]
+    }
+  ]
+}

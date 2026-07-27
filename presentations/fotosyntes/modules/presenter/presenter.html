@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideForge — Presentatörsvy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090d; --surface: #14141f; --card-bg: #1e1e2e;
+            --text: #f1f5f9; --text-muted: rgba(255,255,255,0.65);
+            --accent: #f97316; --accent2: #a855f7;
+            --border: rgba(255,255,255,0.12);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+            min-height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+        }
+        header {
+            padding: 0.8rem 1.2rem; background: var(--surface); border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header-title { font-weight: 700; font-size: 1rem; color: var(--accent); }
+        .slide-num { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-muted); }
+
+        .main-layout {
+            flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem; overflow: hidden;
+        }
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; grid-template-rows: auto 1fr; overflow-y: auto; }
+        }
+
+        .left-col, .right-col {
+            display: flex; flex-direction: column; gap: 1rem; overflow: hidden;
+        }
+
+        .panel-card {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1rem; display: flex; flex-direction: column; overflow: hidden;
+        }
+
+        .notes-card { flex: 1; min-height: 180px; }
+        .notes-header { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.6rem; }
+        .notes-body {
+            font-size: clamp(1rem, 2.2vw, 1.5rem); line-height: 1.5; color: var(--text); overflow-y: auto; flex: 1;
+            white-space: pre-wrap; word-break: break-word;
+        }
+
+        .next-card { height: 140px; }
+        .next-title { font-weight: 600; font-size: 0.95rem; margin-top: 0.4rem; color: var(--accent2); }
+
+        .timer-card { display: flex; flex-direction: row; justify-content: space-around; align-items: center; padding: 0.8rem; }
+        .timer-box { text-align: center; }
+        .timer-label { font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); }
+        .timer-val { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; }
+
+        .preview-card { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+        .preview-title { position: absolute; top: 0.5rem; left: 0.8rem; font-size: 0.75rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+        .preview-box { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; text-align: center; padding: 2rem; }
+
+        footer {
+            padding: 0.8rem 1.2rem; background: var(--surface); border-top: 1px solid var(--border);
+            display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap;
+        }
+        footer button {
+            padding: 0.6rem 1.2rem; border-radius: 999px; border: 1px solid var(--border);
+            background: var(--card-bg); color: var(--text); font-size: 0.85rem; cursor: pointer;
+            min-height: 44px; min-width: 100px; font-weight: 600; transition: all 0.2s;
+        }
+        footer button:hover { border-color: var(--accent); background: var(--surface); }
+        footer button.active-black { background: var(--accent); color: #fff; border-color: var(--accent); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title">🎤 SlideForge Presentatörsvy</div>
+        <div class="slide-num" id="slideNum">Slide 0 / 0</div>
+    </header>
+
+    <div class="main-layout">
+        <div class="left-col">
+            <div class="panel-card preview-card">
+                <div class="preview-title" id="slideIdLabel">ID: -</div>
+                <div class="preview-box" id="previewBox">Aktuell slide</div>
+            </div>
+            <div class="panel-card timer-card">
+                <div class="timer-box">
+                    <div class="timer-label">Total tid</div>
+                    <div class="timer-val" id="totalTimer">00:00</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-label">Slide tid</div>
+                    <div class="timer-val" id="slideTimer">00:00</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-label">Budget</div>
+                    <div class="timer-val" id="budgetVal">-</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-col">
+            <div class="panel-card notes-card">
+                <div class="notes-header">📝 Talaranteckningar</div>
+                <div class="notes-body" id="notesBody">Inga anteckningar för denna slide.</div>
+            </div>
+            <div class="panel-card next-card">
+                <div class="notes-header">⏭️ Nästa slide</div>
+                <div class="next-title" id="nextTitle">Slut på presentationen</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <button id="prevBtn">← Föregående</button>
+        <button id="nextBtn">Nästa →</button>
+        <button id="blackBtn">Blackout (B)</button>
+    </footer>
+
+    <script src="timing.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        if (!window.BroadcastChannel) return;
+        const chan = new BroadcastChannel('slideforge-presenter');
+
+        let isBlackout = false;
+        let totalStart = Date.now();
+        let slideStart = Date.now();
+        let currentBudgetMin = null;
+
+        chan.postMessage({ type: 'request_state' });
+
+        // Update timers every second
+        setInterval(() => {
+            const now = Date.now();
+            const totalElapsed = now - totalStart;
+            const slideElapsed = now - slideStart;
+
+            document.getElementById('totalTimer').textContent = window.SlideForgeTiming.formatDuration(totalElapsed);
+            const slideTimerEl = document.getElementById('slideTimer');
+            slideTimerEl.textContent = window.SlideForgeTiming.formatDuration(slideElapsed);
+
+            if (currentBudgetMin) {
+                const status = window.SlideForgeTiming.getBudgetStatus(slideElapsed, currentBudgetMin);
+                slideTimerEl.style.color = status.color;
+            } else {
+                slideTimerEl.style.color = 'var(--text)';
+            }
+        }, 1000);
+
+        chan.onmessage = function(e) {
+            if (!e.data || e.data.type !== 'state') return;
+            const data = e.data;
+
+            document.getElementById('slideNum').textContent = `Slide ${data.index + 1} / ${data.total}`;
+            document.getElementById('slideIdLabel').textContent = `ID: ${data.id || '-'} (${data.slideType || ''})`;
+            document.getElementById('previewBox').textContent = data.title || data.slideType || 'Slide ' + (data.index + 1);
+
+            document.getElementById('notesBody').textContent = data.notes || 'Inga anteckningar för denna slide.';
+            document.getElementById('nextTitle').textContent = data.nextTitle ? `${data.nextTitle}` : 'Slut på presentationen';
+
+            if (data.durationMin) {
+                currentBudgetMin = data.durationMin;
+                document.getElementById('budgetVal').textContent = `${data.durationMin} min`;
+            } else {
+                currentBudgetMin = null;
+                document.getElementById('budgetVal').textContent = '-';
+            }
+
+            slideStart = Date.now();
+        };
+
+        document.getElementById('prevBtn').onclick = () => chan.postMessage({ type: 'cmd', cmd: 'prev' });
+        document.getElementById('nextBtn').onclick = () => chan.postMessage({ type: 'cmd', cmd: 'next' });
+
+        const blackBtn = document.getElementById('blackBtn');
+        blackBtn.onclick = () => {
+            isBlackout = !isBlackout;
+            blackBtn.classList.toggle('active-black', isBlackout);
+            chan.postMessage({ type: 'cmd', cmd: 'black', on: isBlackout });
+        };
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { chan.postMessage({ type: 'cmd', cmd: 'next' }); }
+            if (e.key === 'ArrowLeft') { chan.postMessage({ type: 'cmd', cmd: 'prev' }); }
+            if (e.key === 'b' || e.key === 'B') { blackBtn.click(); }
+        });
+    })();
+    </script>
+</body>
+</html>
