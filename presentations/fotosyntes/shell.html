@@ -648,39 +648,284 @@
             }
         }
 
-        function loadSlides() {
-            if (window.location.protocol === 'file:') {
-                const xhr = new XMLHttpRequest();
-                xhr.open('GET', 'slides.json', true);
-                xhr.onload = function() {
-                    if (xhr.status === 200 || xhr.status === 0) {
-                        try {
-                            const data = JSON.parse(xhr.responseText);
-                            processLoadedData(data);
-                        } catch(e) {
-                            console.error('JSON parse error:', e);
-                            document.getElementById('cardView').innerHTML = '<p style="text-align:center;padding:4rem;color:var(--red)">JSON-syntaxfel: ' + e.message + '</p>';
-                        }
-                    }
-                };
-                xhr.onerror = function() {
-                    document.getElementById('cardView').innerHTML = '<p style="text-align:center;padding:4rem;color:var(--red)">Kunde inte ladda slides.json</p>';
-                };
-                xhr.send();
-            } else {
-                fetch('slides.json')
-                    .then(r => r.json())
-                    .then(data => {
-                        processLoadedData(data);
-                    })
-                    .catch(err => {
-                        console.error('Failed to load slides.json:', err);
-                        document.getElementById('cardView').innerHTML = '<p style="text-align:center;padding:4rem;color:var(--red)">Kunde inte ladda slides.json</p>';
-                    });
+        const INLINE_SLIDES = {
+          "meta": {
+            "title": "Fotosyntesen & Livets Byggstenar",
+            "subtitle": "Hur solljus omvandlas till kolhydrater, proteiner och fetter",
+            "version": "1.0",
+            "date": "2026-07-27",
+            "author": "gAIa Biologi & SlideForge"
+          },
+          "preset": "classroom",
+          "board": {
+            "sections": [
+              {
+                "id": "sec-fotosyntes",
+                "title": "1. Fotosyntesen — Motorn i Ekosystemet",
+                "slides": ["title-slide", "fotosyntes-formel", "glukos-kolskelett", "fotosyntes-process"]
+              },
+              {
+                "id": "sec-kolhydrater",
+                "title": "2. Kolhydrater — Energi & Struktur",
+                "slides": ["kolhydrater-oversikt", "starkelse-vs-cellulosa", "socker-skelett-citat"]
+              },
+              {
+                "id": "sec-proteiner",
+                "title": "3. Proteiner — Kroppens Maskiner & Byggstenar",
+                "slides": ["protein-syntes-kedja", "protein-funktioner", "aminosyror-stat"]
+              },
+              {
+                "id": "sec-fetter",
+                "title": "4. Fetter (Lipider) — Koncentrerad Energi & Membran",
+                "slides": ["fett-uppbyggnad", "energi-jamforelse", "fett-roller"]
+              },
+              {
+                "id": "sec-helhet",
+                "title": "5. Det Biokemiska Kretsloppet",
+                "slides": ["biokemiskt-samband-map", "kretslopp-jamforelse", "outro-slide"]
+              }
+            ]
+          },
+          "slides": [
+            {
+              "id": "title-slide",
+              "type": "title",
+              "title": "Fotosyntesen & Livets Byggstenar",
+              "subtitle": "Hur solljus blir till kolhydrater, proteiner och fetter i växterna",
+              "cardTitle": "Introduktion",
+              "cardSubtitle": "Startskottet för alla organiska ämnen"
+            },
+            {
+              "id": "fotosyntes-formel",
+              "type": "box-reveal",
+              "title": "Fotosyntesens Reaktionsformel",
+              "text": "Växten använder solenergi för att foga samman koldioxid och vatten till glukos och syrgas.",
+              "boxes": [
+                { "title": "Koldioxid (6 CO₂)", "text": "Tas upp från luften via klyvöppningarna i bladen." },
+                { "title": "Vatten (6 H₂O)", "text": "Sugs upp från marken av rötterna och transporteras upp." },
+                { "title": "Solljus (Energi)", "text": "Fångas av klorofyllet i växtcellernas kloroplaster." },
+                { "title": "Glukos (C₆H₁₂O₆) + Syrgas (6 O₂)", "text": "Druvsocker bildas som energirikt byggmaterial. Syrgas avges till luften." }
+              ],
+              "cardTitle": "Fotosyntesens Formel",
+              "cardSubtitle": "Reaktanter och produkter"
+            },
+            {
+              "id": "glukos-kolskelett",
+              "type": "mindmap",
+              "title": "Glukos: Det Centrala Kolskelettet",
+              "center": "Glukos (C₆H₁₂O₆)",
+              "nodes": [
+                { "label": "Kolhydrater", "detail": "Kopplas ihop till stärkelse (energilager) och cellulosa (cellväggar)." },
+                { "label": "Proteiner", "detail": "Glukos + kväve/svavel från marken blir aminosyror och proteiner." },
+                { "label": "Fetter", "detail": "Glukos omvandlas till glycerol och fettsyror för energilagring i frön." },
+                { "label": "Cellandning", "detail": "Förbränns i mitokondrierna för att ge växten ATP-energi när det är mörkt." }
+              ],
+              "cardTitle": "Glukos som Nav",
+              "cardSubtitle": "Källan till alla tre näringsämnen"
+            },
+            {
+              "id": "fotosyntes-process",
+              "type": "process-chain",
+              "title": "Energins Väg i Växten",
+              "steps": [
+                { "title": "1. Foton-upptag", "desc": "Klorofyll absorberar rött och blått solljus." },
+                { "title": "2. Vattenspjälkning", "desc": "H₂O delas till syrgas (O₂), protoner och elektroner." },
+                { "title": "3. Kolfixering", "desc": "CO₂ binds in i Calvin-cykeln och skapar glukos." },
+                { "title": "4. Omvandling", "desc": "Glukos skickas vidare till cellens syntes av makromolekyler." }
+              ],
+              "cardTitle": "Energins Väg",
+              "cardSubtitle": "Steg för steg i kloroplasten"
+            },
+            {
+              "id": "kolhydrater-oversikt",
+              "type": "bullet-build",
+              "title": "Kolhydrater: Socker, Stärkelse & Cellulosa",
+              "items": [
+                "Monosackarider — Enkla sockerarter som glukos (C₆H₁₂O₆) och fruktos.|Snabb energi för cellens arbete.",
+                "Disackarider — Sammansatta sockerarter som sackaros (rörsocker) och maltos.|Transporteras i växtens sav.",
+                "*Polysackarider — Långa kedjor av hundratals glukosenheter.*|Det huvudsakliga bygg- och lagringsmaterialet.",
+                "Stärkelse: Växtens energireserv (finns i potatis, vete, ris).",
+                "*Cellulosa: Världens vanligaste organiska molekyl – bildar växtens cellväggar och fiber.*"
+              ],
+              "cardTitle": "Kolhydraters Typer",
+              "cardSubtitle": "Från glukos till cellulosa"
+            },
+            {
+              "id": "starkelse-vs-cellulosa",
+              "type": "comparison",
+              "title": "Stärkelse vs Cellulosa — Samma Byggsten, Olika Bindningar",
+              "left": {
+                "title": "Stärkelse (Energilager)",
+                "items": [
+                  "Alfa-glukosbindningar som lätt spiraliseras.",
+                  "Kan lätt brytas ner av växtens och djurs enzymer (amylas).",
+                  "Lagras i korn i rotknölar och frön.",
+                  "Ger snabb energi vid groddning."
+                ]
+              },
+              "right": {
+                "title": "Cellulosa (Struktur & Fiber)",
+                "items": [
+                  "Beta-glukosbindningar som bildar raka, stela fibrer.",
+                  "Kan inte brytas ner av mänskliga enzymer (blir kostfiber).",
+                  "Bygger upp starka cellväggar som tål högt tryck.",
+                  "Kräver speciella bakterier/idisslare för nedbrytning."
+                ]
+              },
+              "cardTitle": "Stärkelse vs Cellulosa",
+              "cardSubtitle": "Jämförelse av struktur och funktion"
+            },
+            {
+              "id": "socker-skelett-citat",
+              "type": "giant-text",
+              "text": "Glukos är växtens **bränsle** – cellulosa är dess **skelett**.",
+              "variant": "display",
+              "align": "center",
+              "cardTitle": "Kärnbudskap: Kolhydrater",
+              "cardSubtitle": "Bränsle och struktur"
+            },
+            {
+              "id": "protein-syntes-kedja",
+              "type": "process-chain",
+              "title": "Hur Växten Tillverkar Proteiner",
+              "steps": [
+                { "title": "1. Glukosskelett", "desc": "Glukos från fotosyntesen ger kolskelettet (C, H, O)." },
+                { "title": "2. Nitrat-upptag", "desc": "Rötterna tar upp nitratjoner (NO₃⁻) och ammonium (NH₄⁺) från jorden." },
+                { "title": "3. Aminosyrasyntes", "desc": "Kväve (N) fogas till kolskelettet — aminosyror bildas." },
+                { "title": "4. Proteinassembling", "desc": "Ribosomerna kopplar aminosyror till långa proteinkedjor." }
+              ],
+              "cardTitle": "Proteinsyntes i Växter",
+              "cardSubtitle": "Glukos + Kväve från marken"
+            },
+            {
+              "id": "protein-funktioner",
+              "type": "box-reveal",
+              "title": "Proteiners Mångsidiga Roller i Livet",
+              "text": "Proteiner är cellens biologiska verktyg och byggmaterial.",
+              "boxes": [
+                { "title": "Enzymer", "text": "Biologiska katalysatorer (t.ex. Rubisco som styr fotosyntesen)." },
+                { "title": "Struktur & Membran", "text": "Bygger upp cellens skelett och kanaler i cellmembranet." },
+                { "title": "Transport & Signal", "text": "Skickar signaler och transporterar ämnen i växtens kärl." },
+                { "title": "Reservnäring i Frön", "text": "Proteiner i t.ex. bönor och ärter ger näring till grodden." }
+              ],
+              "cardTitle": "Proteiners Roller",
+              "cardSubtitle": "Enzymer, struktur och reservnäring"
+            },
+            {
+              "id": "aminosyror-stat",
+              "type": "stat-compare",
+              "title": "Aminosyrornas Värld",
+              "from": "20",
+              "fromLabel": "Totalt antal aminosyror",
+              "fromSuffix": " st",
+              "to": "9",
+              "toLabel": "Essentiella aminosyror (Människan måste äta dem)",
+              "toSuffix": " st",
+              "caption": "Växter kan tillverka samtliga 20 aminosyror från grunden. Människan kan bara tillverka 11 och måste få i sig resten via maten!",
+              "cardTitle": "20 vs 9 Aminosyror",
+              "cardSubtitle": "Växtens förmåga vs människans behov"
+            },
+            {
+              "id": "fett-uppbyggnad",
+              "type": "comparison",
+              "title": "Hur Växten Omvandlar Glukos till Fett",
+              "left": {
+                "title": "Biokemisk Omvandling",
+                "items": [
+                  "Glukos bryts ner till 2-kolsenheter (Acetyl-CoA).",
+                  "Acetyl-CoA byggs ihop till långa fettsyrakedjor.",
+                  "Glycerol bildas också från glukosens mellanstadier.",
+                  "1 Glycerol + 3 Fettsyror = 1 Triglycerid (Fett)."
+                ]
+              },
+              "right": {
+                "title": "Egenskaper & Typer",
+                "items": [
+                  "Mättade fettsyror: Raka kedjor (t.ex. kokosfett, palmolja).",
+                  "Omättade & Fleromättade: Böjda kedjor (t.ex. rapsolja, olivolja).",
+                  "Hydrofoba molekyler: Löser sig inte i vatten.",
+                  "Perfekt för kompakt energilagring i frön."
+                ]
+              },
+              "cardTitle": "Fettets Kemiska Väg",
+              "cardSubtitle": "Från glukos till triglycerider"
+            },
+            {
+              "id": "energi-jamforelse",
+              "type": "stat-compare",
+              "title": "Energiinnehåll: Kolhydrater vs Fetter",
+              "from": "17",
+              "fromLabel": "Kolhydrater & Proteiner",
+              "fromSuffix": " kJ/g",
+              "to": "37",
+              "toLabel": "Fetter (Lipider)",
+              "toSuffix": " kJ/g",
+              "caption": "Fett innehåller mer än dubbelt så mycket energi per gram jämfört med kolhydrater. Därför packar växter sina frön (raps, solros, nötter) med fett!",
+              "cardTitle": "17 vs 37 kJ/g",
+              "cardSubtitle": "Varför frön packas med fett"
+            },
+            {
+              "id": "fett-roller",
+              "type": "box-reveal",
+              "title": "Fettets Tre Huvuduppgifter i Växten",
+              "text": "Lipider är oumbärliga för både struktur, skydd och näring.",
+              "boxes": [
+                { "title": "1. Fröets Energireserv", "text": "Kompakt energi i rapsfrön, solrosfrön och nötter för att gro innan bladen nått ljuset." },
+                { "title": "2. Cellmembran (Fosfolipider)", "text": "Bifilära membran som omger alla celler och organismer och reglerar ämnestransport." },
+                { "title": "3. Skyddande Kutikula", "text": "Vaxer på bladens yta som förhindrar vattenavdunstning och skyddar mot uttorkning." }
+              ],
+              "cardTitle": "Fettets Tre Roller",
+              "cardSubtitle": "Fröreserver, fosfolipider och skyddsvax"
+            },
+            {
+              "id": "biokemiskt-samband-map",
+              "type": "mindmap-tree",
+              "title": "Det Stora Biokemiska Sambandet",
+              "root": "Fotosyntesen (Solljus + CO₂ + H₂O)",
+              "branches": [
+                { "label": "Glukos (C₆H₁₂O₆)", "leaves": ["Centrat i växtens ämnesomsättning"] },
+                { "label": "Kolhydrater", "leaves": ["Stärkelse (Energilager)", "Cellulosa (Cellväggar)", "Sockerarter (Snabb energi)"] },
+                { "label": "Proteiner (+ Kväve N)", "leaves": ["Enzymer (Rubisco)", "Aminosyror (20 st)", "Struktur & Membran"] },
+                { "label": "Fetter / Lipider", "leaves": ["Fröoljor (37 kJ/g)", "Fosfolipider (Membran)", "Vaxer (Skyddskutikula)"] }
+              ],
+              "cardTitle": "Det Stora Sambandet",
+              "cardSubtitle": "Helhetsbilden av biokemin"
+            },
+            {
+              "id": "kretslopp-jamforelse",
+              "type": "bullet-build",
+              "title": "Kretsloppet: Växters Uppbyggnad möter Djurs Nedbrytning",
+              "items": [
+                "Växter är *Autotrofer* — De tillverkar allt sitt eget organiska material från solljus och oorganiska ämnen.",
+                "Djur och Människor är *Heterotrofer* — Vi måste äta växternas kolhydrater, proteiner och fetter.",
+                "*I Cellandningen bryter vi ner glukos och fetter:* C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + ATP-energi.",
+                "Förbränningsprodukterna (CO₂ och H₂O) återvänder till luften och marken...",
+                "*...där växterna fångar dem igen med hjälp av solljuset!*"
+              ],
+              "cardTitle": "Ekosystemets Kretslopp",
+              "cardSubtitle": "Autotrofer och heterotrofer i samspel"
+            },
+            {
+              "id": "outro-slide",
+              "type": "outro",
+              "title": "Fotosyntesen är Grunden för Allt Liv",
+              "subtitle": "Utan fotosyntesen – inga kolhydrater, inga proteiner, inga fetter, och inget syre.",
+              "cardTitle": "Avslutning",
+              "cardSubtitle": "Kärnslutsatsen för ekologin"
             }
-        }
+          ]
+        };
 
-        loadSlides();
+        // Render immediately with inline data
+        processLoadedData(INLINE_SLIDES);
+
+        // Then try fetch to update if online
+        if (window.location.protocol !== 'file:') {
+            fetch('slides.json')
+                .then(r => r.json())
+                .then(data => processLoadedData(data))
+                .catch(err => console.log('[SlideBoard] Using inline slides fallback'));
+        }
     })();
     </script>
 </body>
