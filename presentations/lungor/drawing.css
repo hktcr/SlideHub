@@ -1,0 +1,20 @@
+#drawing-controls{position:relative;z-index:5;display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:6px 12px;background:#fffefaf5;border-bottom:1px solid #19191740;flex:none}
+#drawing-status{font-size:12px;color:#51544b;margin-left:6px}
+#drawing-controls button:disabled{cursor:default;opacity:.55}
+#drawing-play{background:#333c31;color:#fffefa}
+body.image-first #drawing-controls{position:fixed;top:74px;left:10px;right:10px;border:1px solid #19191765;border-radius:6px}
+#ink-drawing{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+#ink-drawing[hidden]{display:none}
+#art.drawing-active #picture{opacity:0}
+#art.drawing-active :is(#labels,#spots,#flows,#mucus){visibility:hidden;pointer-events:none}
+#art.drawing-active #spots button{pointer-events:none}
+@media(max-width:1100px){body.image-first #drawing-controls{top:130px}#drawing-status{width:100%;margin:0}#drawing-controls .control{min-height:36px;font-size:11px;padding:5px 7px}}
+@media(prefers-reduced-motion:reduce){#ink-drawing{display:none!important}#art.drawing-active #picture{opacity:1}}
+
+#drawing-controls{display:none}body.drawing-ui-open #drawing-controls{display:flex}body.drawing-ui-open #frame-help{display:none!important}#drawing-play{white-space:nowrap}
+
+#drawing-play:disabled{opacity:.55;cursor:default}
+
+#drawing-progress{width:90px;height:7px;accent-color:#333c31}
+
+#art.drawing-active #omission{visibility:visible;z-index:3}
