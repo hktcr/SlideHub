@@ -42,5 +42,5 @@ $('#picture').onload=pictureReady;$('#picture').onerror=pictureFailed;show('over
 
 $('#toolbar-control').onclick=()=>{const open=document.body.classList.toggle('controls-open');$('#toolbar-control').setAttribute('aria-expanded',String(open));$('#toolbar-control').textContent=open?'Dölj reglage':'Visa reglage';size()};
 $('#display-control').onclick=()=>{const active=document.body.classList.toggle('image-first');$('#display-control').setAttribute('aria-pressed',String(active));$('#display-control').textContent=active?'Visa textläge':'Visa bildläge';document.body.classList.add('controls-open');$('#toolbar-control').textContent='Dölj reglage';$('#toolbar-control').setAttribute('aria-expanded','true');size()};
-$('#animation-control').onclick=()=>{$('#transport-frame').src='transport.html';$('#transport').showModal()};
+$('#animation-control').onclick=()=>{$('#transport-frame').src='transport.html?v=cinema-2';$('#transport').showModal()};
 $('#transport-close').onclick=()=>$('#transport').close();$('#transport').addEventListener('close',()=>$('#transport-frame').removeAttribute('src'));

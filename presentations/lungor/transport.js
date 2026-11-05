@@ -3,7 +3,7 @@ const $=s=>document.querySelector(s),NS='http://www.w3.org/2000/svg';
 const stages=[
  ['1 · Partiklar fastnar i slem','Damm och andra små partiklar fastnar i det klibbiga slemlagret. Det är slemmet som fångar dem, inte flimmerhåren själva.'],
  ['2 · Flimmerhåren för slemmet vidare','Flimmerhåren sitter fast i cellerna och slår samordnat. Slem och fångade partiklar förs mot svalget. Cilierna böjs tillbaka närmare cellytan mellan kraftslagen.'],
- ['3 · Slemmet når svalget','Slem från luftstrupen och bronkerna når svalget och blandas med saliv. Schemat ”Hela vägen” visar färden, i en annan förstoring.'],
+ ['3 · Slemmet når svalget','Slem från luftstrupen och bronkerna når svalget och blandas med saliv. Vägschemat visar färden, i en annan förstoring.'],
  ['4 · Slemmet sväljs','Andningen pausar kort och luftvägen skyddas vid sväljningen. Slemmet går från svalget ned i matstrupen, vars muskler för det vidare mot magen.']
 ];
 function svg(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);parent.append(e);return e}
@@ -27,5 +27,7 @@ $('#play').onclick=()=>{if(reduced.matches)return;if(progress>=1){progress=0;sho
 $('#next').onclick=()=>{setPlaying(false);progress=[.19,.4,.68,.86,1].find(x=>x>progress+.005)??1;render()};
 $('#reset').onclick=()=>{setPlaying(false);progress=0;shownStage=-1;render()};
 $('#progress').oninput=()=>{setPlaying(false);progress=Number($('#progress').value)/100;render()};
-function motionPreference(){if(reduced.matches)setPlaying(false);$('#play').disabled=reduced.matches;$('#motion-note').textContent=reduced.matches?'Minskad rörelse: använd Nästa steg eller reglaget.':'Spela hela förloppet eller visa ett steg i taget.'}
+function motionPreference(){if(reduced.matches)setPlaying(false);$('#play').disabled=reduced.matches;$('#motion-note').classList.toggle('reduced',reduced.matches);$('#motion-note').textContent=reduced.matches?'Minskad rörelse: använd Nästa steg eller reglaget.':'Spela hela förloppet eller visa ett steg i taget.'}
 reduced.addEventListener('change',motionPreference);document.addEventListener('visibilitychange',()=>{if(document.hidden)setPlaying(false)});motionPreference();render();
+
+$('#facts-open').onclick=()=>{setPlaying(false);$('#model-facts').showModal()};$('#facts-close').onclick=()=>$('#model-facts').close();
