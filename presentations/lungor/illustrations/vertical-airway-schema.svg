@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img"><title>Upprätt luftstrupe och förstorat väggutsnitt</title><desc>Schematisk vertikal luftstrupe med uppåtriktad slemtransport mot svalget. Förstoring av en lokal längdvy av slemhinnan: celler förankrade vid väggen, cilier mot lumen och partiklar i slemlagret. Transporten drivs av cilier, inte tyngdkraften.</desc><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#507779"/></marker><radialGradient id="disc"><stop offset="0" stop-color="#e7a99b"/><stop offset=".44" stop-color="#d99584"/><stop offset=".7" stop-color="#a94e47"/><stop offset="1" stop-color="#c87562"/></radialGradient></defs><rect width="1600" height="1000" fill="#fffefa"/><style>text{font-family:Arial,sans-serif;fill:#20211e}.title{font-family:Georgia,serif;font-size:42px;font-weight:bold}.label{font-size:29px}.small{font-size:24px}.note{font-size:22px;fill:#575d51}.leader{fill:none;stroke:#20211e;stroke-width:2}.wall{fill:#fffefa;stroke:#20211e;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}</style>
+<text class="title" x="75" y="80">Flimmerhår för slemmet mot svalget</text>
+<text class="small" x="75" y="125">Luftstrupen i kroppen och en förstorad längdvy av väggen</text>
+<rect x="320" y="185" width="220" height="80" rx="30" fill="#e8decc" stroke="#20211e" stroke-width="3"/>
+<text class="small" x="430" y="237" text-anchor="middle">Struphuvud</text>
+<text class="small" x="430" y="175" text-anchor="middle">Mot svalget</text>
+<path d="M360 265 V630 Q360 670 320 710 L190 825 L245 880 L390 757 Q430 725 470 757 L615 880 L670 825 L540 710 Q500 670 500 630 V265" fill="#faf5e8" stroke="#20211e" stroke-width="4"/>
+<path d="M363 305 Q430 313 497 305" fill="none" stroke="#7c7567" stroke-width="1.8"/>
+<path d="M363 350 Q430 358 497 350" fill="none" stroke="#7c7567" stroke-width="1.8"/>
+<path d="M363 395 Q430 403 497 395" fill="none" stroke="#7c7567" stroke-width="1.8"/>
+<path d="M363 440 Q430 448 497 440" fill="none" stroke="#7c7567" stroke-width="1.8"/>
+<path d="M363 485 Q430 493 497 485" fill="none" stroke="#7c7567" stroke-width="1.8"/>
+<path d="M363 530 Q430 538 497 530" fill="none" stroke="#7c7567" stroke-width="1.8"/>
+<path d="M363 575 Q430 583 497 575" fill="none" stroke="#7c7567" stroke-width="1.8"/>
+<path d="M388 610 V300" fill="none" stroke="#507779" stroke-width="6" marker-end="url(#arrow)"/>
+<text class="small" x="90" y="405">Slemtransport</text>
+<text class="small" x="190" y="435">mot svalget</text>
+<path d="M320 440 L385 420" class="leader"/>
+<text class="small" x="470" y="565">Luftstrupe</text>
+<text class="small" x="430" y="865" text-anchor="middle">Bronker</text>
+<rect data-annotation="true" x="475" y="375" width="48" height="110" fill="none" stroke="#20211e" stroke-width="3" stroke-dasharray="8 5"/>
+<path d="M525 385 L930 265 M525 478 L930 775" fill="none" stroke="#77786c" stroke-width="1.8" stroke-dasharray="7 6" data-annotation="true"/>
+<rect x="945" y="270" width="29" height="505" fill="#c1ccae" stroke="#20211e" stroke-width="2"/>
+<rect x="974" y="270" width="59" height="505" fill="#eef1e7"/>
+<path d="M1033 271 Q1100 277 1225 271 L1225 341 Q1100 335 1033 341 Z" fill="#e6c4b0" stroke="#20211e" stroke-width="2"/>
+<ellipse cx="1117" cy="307" rx="24" ry="13" fill="#8b797f"/>
+<path d="M1034 276 Q1009 279 974 267" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 285 Q1009 288 974 276" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 294 Q1009 297 974 285" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 303 Q1009 306 974 294" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 312 Q1009 315 974 303" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 321 Q1009 324 974 312" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 330 Q1009 333 974 321" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1033 343 Q1100 349 1225 343 L1225 413 Q1100 407 1033 413 Z" fill="#e6c4b0" stroke="#20211e" stroke-width="2"/>
+<ellipse cx="1140" cy="379" rx="24" ry="13" fill="#8b797f"/>
+<path d="M1034 348 Q1009 351 974 339" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 357 Q1009 360 974 348" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 366 Q1009 369 974 357" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 375 Q1009 378 974 366" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 384 Q1009 387 974 375" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 393 Q1009 396 974 384" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 402 Q1009 405 974 393" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1033 415 Q1100 421 1225 415 L1225 485 Q1100 479 1033 485 Z" fill="#e6c4b0" stroke="#20211e" stroke-width="2"/>
+<ellipse cx="1163" cy="451" rx="24" ry="13" fill="#8b797f"/>
+<path d="M1034 420 Q1009 423 974 411" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 429 Q1009 432 974 420" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 438 Q1009 441 974 429" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 447 Q1009 450 974 438" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 456 Q1009 459 974 447" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 465 Q1009 468 974 456" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 474 Q1009 477 974 465" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1033 487 Q1100 493 1225 487 L1225 557 Q1100 551 1033 557 Z" fill="#e6c4b0" stroke="#20211e" stroke-width="2"/>
+<ellipse cx="1117" cy="523" rx="24" ry="13" fill="#8b797f"/>
+<path d="M1034 492 Q1009 495 974 483" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 501 Q1009 504 974 492" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 510 Q1009 513 974 501" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 519 Q1009 522 974 510" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 528 Q1009 531 974 519" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 537 Q1009 540 974 528" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 546 Q1009 549 974 537" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1033 559 Q1100 565 1225 559 L1225 629 Q1100 623 1033 629 Z" fill="#e6c4b0" stroke="#20211e" stroke-width="2"/>
+<ellipse cx="1140" cy="595" rx="24" ry="13" fill="#8b797f"/>
+<path d="M1034 564 Q1009 567 974 555" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 573 Q1009 576 974 564" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 582 Q1009 585 974 573" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 591 Q1009 594 974 582" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 600 Q1009 603 974 591" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 609 Q1009 612 974 600" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 618 Q1009 621 974 609" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1033 631 Q1100 637 1225 631 L1225 701 Q1100 695 1033 701 Z" fill="#e6c4b0" stroke="#20211e" stroke-width="2"/>
+<ellipse cx="1163" cy="667" rx="24" ry="13" fill="#8b797f"/>
+<path d="M1034 636 Q1009 639 974 627" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 645 Q1009 648 974 636" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 654 Q1009 657 974 645" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 663 Q1009 666 974 654" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 672 Q1009 675 974 663" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 681 Q1009 684 974 672" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 690 Q1009 693 974 681" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1033 703 Q1100 709 1225 703 L1225 773 Q1100 767 1033 773 Z" fill="#e6c4b0" stroke="#20211e" stroke-width="2"/>
+<ellipse cx="1117" cy="739" rx="24" ry="13" fill="#8b797f"/>
+<path d="M1034 708 Q1009 711 974 699" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 717 Q1009 720 974 708" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 726 Q1009 729 974 717" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 735 Q1009 738 974 726" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 744 Q1009 747 974 735" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 753 Q1009 756 974 744" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<path d="M1034 762 Q1009 765 974 753" fill="none" stroke="#20211e" stroke-width="1.6"/>
+<circle cx="958" cy="320" r="6" fill="#ac7452" stroke="#20211e" stroke-width="1"/>
+<circle cx="955" cy="430" r="6" fill="#ac7452" stroke="#20211e" stroke-width="1"/>
+<circle cx="959" cy="560" r="6" fill="#ac7452" stroke="#20211e" stroke-width="1"/>
+<circle cx="956" cy="700" r="6" fill="#ac7452" stroke="#20211e" stroke-width="1"/>
+<path d="M899 700 V300" fill="none" stroke="#507779" stroke-width="5" marker-end="url(#arrow)"/>
+<text class="small" x="860" y="215" text-anchor="middle">Slemtransport</text>
+<text class="small" x="860" y="250" text-anchor="middle">mot svalget</text>
+<text class="small" x="815" y="535">Luft</text>
+<text class="small" x="1270" y="340">Slem</text>
+<path d="M1260 350 L963 350" class="leader"/>
+<text class="small" x="1270" y="485">Flimmerhår</text>
+<path d="M1260 495 L1005 495" class="leader"/>
+<text class="small" x="1270" y="635">Väggens celler</text>
+<path d="M1260 645 L1185 645" class="leader"/>
+<text class="note" x="75" y="900">Utsnitt med cilierade celler. Slem bildas av bägarceller och körtlar, som inte visas här.</text>
+<text class="note" x="75" y="935">Ciliernas arbete flyttar slemmet. Riktningen styrs inte av tyngdkraften.</text>
+<text class="note" x="75" y="970">Förenklad modell, olika förstoringar. Alveoler har inte detta cilierade epitel.</text>
+</svg>

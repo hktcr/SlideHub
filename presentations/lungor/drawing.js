@@ -13,7 +13,7 @@
  let token=0,raf=0,state='idle',elapsed=0,origin=0,data=null,source='',ctx=null,ink=null;
  let lastInk=0,pathIndex=0,segmentIndex=1,segmentProgress=0;
  const cache=new Map();
- function restore(){document.body.classList.remove('drawing-ui-open');cancelAnimationFrame(raf);raf=0;canvas.hidden=true;art.classList.remove('drawing-active');pause.disabled=true;pause.textContent='Pausa';play.disabled=reduced.matches;again.disabled=reduced.matches;}
+ function restore(){document.body.classList.remove('drawing-ui-open');window.refreshPresentationSize?.();cancelAnimationFrame(raf);raf=0;canvas.hidden=true;art.classList.remove('drawing-active');pause.disabled=true;pause.textContent='Pausa';play.disabled=reduced.matches;again.disabled=reduced.matches;}
  function cancel(message='Partiell konturuppritning, sedan färgavtäckning.') {token++;state='idle';restore();status.textContent=message;}
  function complete(){const focusInBar=bar.contains(document.activeElement);cancel('Färdig originalbild. Etiketter och ramar är återställda.');if(focusInBar)play.focus();}
  function motionPreference(){play.textContent=reduced.matches?'Minskad rörelse':'Rita upp';play.setAttribute('aria-label',reduced.matches?'Uppritning avstängd eftersom minskad rörelse är aktiverad':'Rita upp');play.title=reduced.matches?'Minskad rörelse är aktiverad. Färdig bild visas.':'Rita fram bildens konturer och visa sedan färgen';if(reduced.matches)cancel('Minskad rörelse: färdig bild visas utan uppritning.');else cancel();}
@@ -21,7 +21,7 @@
  function advanceInk(target){
   const c=ink.getContext('2d');let budget=Math.max(0,target-lastInk);lastInk=target;
   while(budget>0&&pathIndex<data.paths.length){
-   const path=data.paths[pathIndex],pts=path.points;
+   const path=data.paths[pathIndex],pts=path.points;c.lineWidth=path.width||1.15;c.strokeStyle=path.stroke||'#29251f';
    if(segmentIndex>=pts.length){pathIndex++;segmentIndex=1;segmentProgress=0;continue;}
    const a=pts[segmentIndex-1],b=pts[segmentIndex],len=Math.hypot(b[0]-a[0],b[1]-a[1]);
    const part=Math.min(budget,len-segmentProgress),t0=segmentProgress/len,t1=(segmentProgress+part)/len;
@@ -41,6 +41,7 @@
    for(let x=canvas.width;x>=0;x-=8)ctx.lineTo(x,(edge+.06*Math.sin(x/73))*canvas.height);
    ctx.closePath();ctx.clip();ctx.drawImage(picture,0,0,canvas.width,canvas.height);ctx.restore();
   }
+  if(data.labels)ctx.drawImage(data.labels,0,0,canvas.width,canvas.height);
   const label=phase.color>0?'Partiell konturuppritning · färgen avtäcks…':'Partiell konturuppritning · linjer ritas…';
   if(status.textContent!==label)status.textContent=label;
   if(phase.done){complete();return false;}return true;
@@ -53,9 +54,10 @@
  async function start(){
   cancel();if(reduced.matches){motionPreference();return;}
   if(!picture.complete||!picture.naturalWidth){status.textContent='Vänta tills bilden har laddats.';return;}
-  const run=token;source=picture.currentSrc;state='preparing';progress.value=0;document.body.classList.add('drawing-ui-open');play.disabled=again.disabled=true;status.textContent='Förbereder linjer från den aktuella bilden…';
+  const run=token;source=picture.currentSrc;state='preparing';progress.value=0;document.body.classList.add('drawing-ui-open');window.refreshPresentationSize?.();play.disabled=again.disabled=true;status.textContent='Förbereder linjer från den aktuella bilden…';
   try{
    data=cache.get(source);
+   if(!data&&picture.dataset?.exactVector==='true'){data=await VectorTrace.prepare(source,()=>run!==token);if(run!==token)return;cache.set(source,data);if(cache.size>8)cache.delete(cache.keys().next().value);}
    if(!data){
     const sample=document.createElement('canvas');sample.width=Math.min(900,picture.naturalWidth);sample.height=Math.round(sample.width*picture.naturalHeight/picture.naturalWidth);
     const sc=sample.getContext('2d',{willReadFrequently:true});sc.drawImage(picture,0,0,sample.width,sample.height);

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img"><title>En alveol, en kapillär och röda blodkroppar</title><desc>Vänster en alveol i öppnat snitt med en kapillär utanför luftutrymmet och flera röda blodkroppar inne i kärlet. Höger en starkt förstorad röd blodkropp separat, sedd uppifrån och i genomskärning. Modellerna är inte skalenliga.</desc><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="#507779"/></marker><radialGradient id="disc"><stop offset="0" stop-color="#e7a99b"/><stop offset=".44" stop-color="#d99584"/><stop offset=".7" stop-color="#a94e47"/><stop offset="1" stop-color="#c87562"/></radialGradient></defs><rect width="1600" height="1000" fill="#fffefa"/><style>text{font-family:Arial,sans-serif;fill:#20211e}.title{font-family:Georgia,serif;font-size:42px;font-weight:bold}.label{font-size:29px}.small{font-size:24px}.note{font-size:22px;fill:#575d51}.leader{fill:none;stroke:#20211e;stroke-width:2}.wall{fill:#fffefa;stroke:#20211e;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}</style>
+<text class="title" x="75" y="80">Luft och blod hålls åtskilda</text>
+<text class="small" x="75" y="125">Öppnad alveol och en utvald kapillär, inte hela kärlnätet</text>
+<path d="M430 205 V280 A250 250 0 1 0 570 280 V205" fill="none" stroke="#e7b5a5" stroke-width="18"/>
+<path d="M430 205 V280 A250 250 0 1 0 570 280 V205" fill="none" stroke="#20211e" stroke-width="3"/>
+<path d="M250.95 541.79 A250 250 0 0 0 749.05 541.79 L764.99 543.18 A266 266 0 0 1 235.01 543.18 Z" fill="#eee1cf" stroke="none"/>
+<path d="M207.12 545.62 A294 294 0 0 0 792.88 545.62 L764.99 543.18 A266 266 0 0 1 235.01 543.18 Z" fill="#f3d7cc" stroke="none"/>
+<path d="M207.12 545.62 A294 294 0 0 0 792.88 545.62" fill="none" stroke="#20211e" stroke-width="2.5"/>
+<path d="M764.99 543.18 A266 266 0 0 1 235.01 543.18" fill="none" stroke="#20211e" stroke-width="2.5"/>
+<ellipse cx="775.75" cy="568.62" rx="8" ry="5" transform="rotate(100 775.75 568.62)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="757.74" cy="629.40" rx="8" ry="5" transform="rotate(113 757.74 629.40)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="726.52" cy="684.58" rx="8" ry="5" transform="rotate(126 726.52 684.58)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="683.70" cy="731.32" rx="8" ry="5" transform="rotate(139 683.70 731.32)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="631.45" cy="767.23" rx="8" ry="5" transform="rotate(152 631.45 767.23)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="572.47" cy="790.46" rx="8" ry="5" transform="rotate(165 572.47 790.46)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="509.77" cy="799.83" rx="8" ry="5" transform="rotate(178 509.77 799.83)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="446.57" cy="794.86" rx="8" ry="5" transform="rotate(191 446.57 794.86)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="386.11" cy="775.79" rx="8" ry="5" transform="rotate(204 386.11 775.79)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="331.49" cy="743.62" rx="8" ry="5" transform="rotate(217 331.49 743.62)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="285.51" cy="699.98" rx="8" ry="5" transform="rotate(230 285.51 699.98)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="250.52" cy="647.12" rx="8" ry="5" transform="rotate(243 250.52 647.12)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<ellipse cx="228.32" cy="587.74" rx="8" ry="5" transform="rotate(256 228.32 587.74)" fill="#b55d50" stroke="#20211e" stroke-width="1.4"/>
+<text class="label" x="520" y="475" text-anchor="middle">Luft i alveolen</text>
+<text class="small" x="70" y="340">Utsnitt av kapillär</text>
+<path d="M125 355 L225 565" class="leader"/>
+<text class="small" x="80" y="865">Röda blodkroppar</text>
+<path d="M320 855 L331.49 743.62" class="leader"/>
+<path d="M555 685 L578 783" fill="none" stroke="#507779" stroke-width="5" marker-end="url(#arrow)"/>
+<text class="small" x="610" y="695">Syre</text>
+<path d="M350 750 L380 660" fill="none" stroke="#507779" stroke-width="4" marker-end="url(#arrow)"/>
+<text class="small" x="360" y="635" text-anchor="middle">Koldioxid</text>
+<path d="M905 195 V850" stroke="#20211e" stroke-width="1" opacity=".35"/>
+<text class="small" x="1210" y="235" text-anchor="middle">En cell, starkare förstoring</text>
+<text class="small" x="1210" y="275" text-anchor="middle">Bikonkav skiva, sedd uppifrån</text>
+<circle cx="1210" cy="435" r="118" fill="url(#disc)" stroke="#20211e" stroke-width="4"/>
+<ellipse cx="1210" cy="435" rx="49" ry="47" fill="none" stroke="#8a4840" stroke-width="1.4" opacity=".65"/>
+<text class="small" x="1210" y="595" text-anchor="middle">Tunnare mitt, inget hål</text>
+<text class="small" x="1210" y="685" text-anchor="middle">Samma cell i genomskärning</text>
+<path d="M1070 752 C1070 713 1110 708 1147 725 C1190 744 1230 744 1273 725 C1310 708 1350 713 1350 752 C1350 790 1310 795 1273 778 C1230 760 1190 760 1147 778 C1110 795 1070 790 1070 752 Z" fill="#b55d50" stroke="#20211e" stroke-width="3"/>
+<text class="note" x="75" y="930">Två olika förstoringar. Färger och storlekar är förenklade, inte uppmätta.</text>
+<text class="note" x="75" y="965">Röda blodkroppar finns i blodkärlen, inte i alveolens luftutrymme.</text>
+</svg>
