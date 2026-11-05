@@ -12,4 +12,4 @@ Illustrationerna och deras etiketter har granskats i slutlig form som schematisk
 
 De sju nytecknade illustrationsbearbetningarna följer presentationens angivna CC BY-NC-SA 4.0-villkor. Den separata oförändrade vetenskapliga originalreferensen från Rößler med flera (2025), figur 6e, är CC BY 4.0. Full attribution och källor finns i presentationens dialoger.
 
-Release: `lungor-ink-2026-11-05`.
+Release: `lungor-ink-2026-11-05.1`.
